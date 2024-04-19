@@ -17,7 +17,7 @@
 body {
   @apply flex flex-col bg-black min-h-svh min-w-80;
 }
-.list__ships {
+.list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   @apply gap-4;

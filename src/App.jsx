@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { getApi } from "./utils";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Starships from "./pages/Starships";
 import Menu from "./components/Menu";
 export default function App() {
   const [starships, setStarships] = useState({});
@@ -43,50 +45,8 @@ export default function App() {
             <Link to="/starships">StarShips</Link>
           </Menu>
           <Routes>
-            <Route
-              path="/"
-              element={
-                <article className="p-4">
-                  <h1>Home</h1>
-                  <p>
-                    Ut laboris esse ea culpa. Ex officia est pariatur elit
-                    mollit proident sint reprehenderit fugiat est consequat.
-                    Nisi dolore eu ex laboris et ullamco commodo ullamco minim
-                    esse adipisicing ipsum. Proident nulla qui elit eiusmod
-                    mollit nisi in aliquip mollit exercitation officia ea. Culpa
-                    qui excepteur dolor dolor Lorem in cillum proident
-                    consectetur dolore in. Laborum esse veniam tempor quis enim
-                    non veniam do laborum in. Cillum labore excepteur nostrud
-                    mollit. Culpa deserunt proident do ex ipsum aliquip.
-                    Deserunt est esse minim ea nulla. Enim nostrud ad aliqua
-                    commodo adipisicing duis veniam excepteur laboris ut magna
-                    ipsum. Aliquip consequat veniam qui proident id minim
-                    cupidatat enim. Officia labore culpa sunt irure velit
-                    voluptate adipisicing eu. Adipisicing sit dolor qui mollit.
-                  </p>
-                </article>
-              }
-            />
-            <Route
-              path="/starships"
-              element={
-                <section className="list__ships p-4">
-                  <aside className="col-span-full p-4">
-                    <strong>StarShips</strong>
-                  </aside>
-                  {starships.results &&
-                    starships.results.map((star, idx) => (
-                      <article
-                        className="ring-2 rounded-lg min-w-80 p-4"
-                        key={idx}
-                      >
-                        <h2 className="text-2xl">{star.name}</h2>
-                        <span className="text-sm">{star.model}</span>
-                      </article>
-                    ))}
-                </section>
-              }
-            />
+            <Route path="/" element={<Home />} />
+            <Route path="/starships" element={<Starships />} />
             <Route
               path="*"
               element={
