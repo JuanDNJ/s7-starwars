@@ -9,49 +9,16 @@
   font-size: 1em;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-a {
-  @apply text-lg font-extrabold text-[#646cff] hover:text-[#535bf2];
-}
-
 body {
-  @apply m-0 flex text-2xl;
+  @apply flex flex-col bg-black min-h-svh min-w-80;
 }
-
-h1 {
-  @apply m-0 text-4xl;
-  line-height: 1.1;
-}
-
-button {
-  font-family: inherit;
-  @apply bg-[#1a1a1a] cursor-pointer font-bold text-[1rem] py-[0.6em] px-[1.2em] border  border-transparent rounded-md;
-  transition: border-color 0.25s;
-}
-button:hover {
-  @apply border-[#646cff];
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    @apply hover:text-[#747bff];
-  }
-  button {
-    @apply bg-[#f9f9f9];
-  }
+.list__ships {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  @apply gap-4;
 }
