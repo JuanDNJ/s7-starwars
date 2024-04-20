@@ -1,6 +1,21 @@
+import Loading from "../components/Loading";
+import { useAppSelector } from "../store";
+
 export default function Home() {
+  const shipsAll = useAppSelector((state) => state.starShips);
+
+  const { isLoading, error, ships } = shipsAll;
+
   return (
     <article className="p-4">
+      {isLoading && <Loading />}
+      {error && <h1>Error</h1>}
+
+      {ships &&
+        ships.results &&
+        ships.results.map((ship) => (
+          <strong key={ship.name}>{ship.name}</strong>
+        ))}
       <h1>Home</h1>
       <p>
         Ut laboris esse ea culpa. Ex officia est pariatur elit mollit proident

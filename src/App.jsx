@@ -11,8 +11,14 @@ import Logo from "./components/Logo";
 import MainHeader from "./components/MainHeader";
 import Pilots from "./pages/Pilots";
 import Films from "./pages/Films";
-
+import { useAppDispatch } from "./store";
+import { fetchStarships } from "./store/tunks";
+import { useEffect } from "react";
 export default function App() {
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(fetchStarships());
+  }, []);
   return (
     <BrowserRouter>
       <section className="max-w-5xl m-auto">
