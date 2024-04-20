@@ -24,8 +24,8 @@ export async function getPicture(resource) {
 }
 
 export function createUrlDetail(payload) {
-  const firstIndex = payload.url.indexOf("starship");
-  const lastIndex = payload.url.lastIndexOf("/");
-  const url = payload.url.slice(firstIndex, lastIndex).replace("/", "&id=");
-  return url;
+  const firstIndex = payload.indexOf("starship");
+  const lastIndex = payload.lastIndexOf("/");
+  const url = payload.slice(firstIndex, lastIndex).replace("/", "&id=");
+  return `?${url}`;
 }

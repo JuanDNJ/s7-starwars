@@ -8,7 +8,7 @@ export default function Ship({ payload }) {
         <h2 className="text-2xl">{payload.name}</h2>
         <span className="text-sm">{payload.model}</span>
         <Link
-          to={`/starships/detail/?${createUrlDetail(payload.url)}`}
+          to={`/starships/detail/${createUrlDetail(payload.url)}`}
           className="px-2 py-1 absolute bottom-4 right-4"
         >
           View

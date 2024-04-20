@@ -1,24 +1,23 @@
 import { useEffect, useState } from "react";
 import { getApi } from "../utils";
 import List from "../components/List";
+import Aside from "../components/Aside";
 
 export default function Starships() {
   const [starships, setStarships] = useState({});
   useEffect(() => {
     getApi("starships")
       .then((ships) => {
+        console.log(ships);
         setStarships(() => ships);
       })
       .catch((error) => console.error(error));
 
-    console.log(starships);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <article className="flex flex-col py-2">
-      <aside className="border border-l-0 border-r-0 border-stone-800">
-        <strong className="px-4 text-stone-400">StarShips</strong>
-      </aside>
+      <Aside>StarShips</Aside>
       <List payload={starships.results} />
     </article>
   );

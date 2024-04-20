@@ -1,33 +1,38 @@
-import { useParams } from "react-router-dom";
-import { useSearchParams } from "react-router-dom";
-import ship404 from "../assets/images/ship404.jpg";
+import { Outlet, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getPicture } from "../utils";
+import { getApi } from "../utils";
+import DetailShip from "../components/DetailShip";
+import Aside from "../components/Aside";
+import Menu from "../components/Menu";
+import GoToPage from "../components/GoToPage";
 export default function Deatils() {
-  const { id } = useParams();
-  let [searchParams] = useSearchParams();
-  const [shipImg, setShipImg] = useState("");
-  const picture = async () => {
-    const img = await getPicture(searchParams.get("id"));
-    setShipImg(() => (img ? img.url : ship404));
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get("id");
+  const [ship, setShip] = useState("");
+
+  const getShip = async () => {
+    const ship = await getApi(`starships/${id}`);
+    setShip(() => ({ ...ship, pictureId: id }));
   };
-  console.log(searchParams.get("id"));
+  console.log(id);
   useEffect(() => {
-    picture();
+    getShip();
   }, []);
   return (
-    <section className="grid md:grid-flow-col">
-      <article className="">
-        <img
-          className="ship__detail"
-          height={345}
-          src={shipImg}
-          alt="Ship image"
-        />
-      </article>
-      <article className="">
-        <h1>Hola Detail {id}</h1>
-      </article>
+    <section className="flex flex-col gap-4">
+      <Aside top>{ship.name}</Aside>
+      <section className="order-0">
+        {ship && <DetailShip ship={ship} />}
+      </section>
+      <Aside bottom>
+        <Menu>
+          <GoToPage url={"films"}>Films</GoToPage>
+          <GoToPage url={"pilots"}>Pilots</GoToPage>
+        </Menu>
+      </Aside>
+      <section className="order-2 p-4">
+        <Outlet />
+      </section>
     </section>
   );
 }

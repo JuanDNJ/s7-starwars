@@ -22,9 +22,3 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   @apply gap-4;
 }
-.ship__detail {
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
-  max-height: 345px;
-}
