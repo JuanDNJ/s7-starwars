@@ -12,12 +12,13 @@ export default function Deatils() {
 
   const getShip = async () => {
     const ship = await getApi(`starships/${id}`);
+
     setShip(() => ({ ...ship, pictureId: id }));
   };
-  console.log(id);
+
   useEffect(() => {
     getShip();
-  }, []);
+  }, [id]);
   return (
     <section className="flex flex-col gap-4">
       <Aside top>{ship.name}</Aside>
@@ -26,8 +27,14 @@ export default function Deatils() {
       </section>
       <Aside bottom>
         <Menu>
-          <GoToPage url={"films"}>Films</GoToPage>
-          <GoToPage url={"pilots"}>Pilots</GoToPage>
+          <section className="col-span-4 md:col-span-6 flex gap-4">
+            {ship.films && ship.films.length > 0 && (
+              <GoToPage url={`films?id=${id}`}>Films</GoToPage>
+            )}
+            {ship.pilots && ship.pilots.length > 0 && (
+              <GoToPage url={"pilots"}>Pilots</GoToPage>
+            )}
+          </section>
         </Menu>
       </Aside>
       <section className="order-2 p-4">
