@@ -1,24 +1,23 @@
-import { useEffect, useState } from "react";
-import { getApi } from "../utils";
 import List from "../components/List";
 import Aside from "../components/Aside";
+import { useAppSelector } from "../store";
+import Loading from "../components/Loading";
 
 export default function Starships() {
-  const [starships, setStarships] = useState({});
-  useEffect(() => {
-    getApi("starships")
-      .then((ships) => {
-        console.log(ships);
-        setStarships(() => ships);
-      })
-      .catch((error) => console.error(error));
+  const shipsAll = useAppSelector((state) => state.starShips);
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const { isLoading, error, ships } = shipsAll;
+
   return (
-    <article className="flex flex-col py-2">
-      <Aside>StarShips</Aside>
-      <List payload={starships.results} />
-    </article>
+    <>
+      {isLoading && <Loading />}
+      {error && <h1>Error</h1>}
+      {ships && (
+        <article className="flex flex-col py-2">
+          <Aside>StarShips</Aside>
+          <List payload={ships.results} />
+        </article>
+      )}
+    </>
   );
 }
