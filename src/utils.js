@@ -10,3 +10,22 @@ export async function getApi(resource) {
     console.error(error);
   }
 }
+export async function getPicture(resource) {
+  try {
+    const request = await fetch(
+      `https://starwars-visualguide.com/assets/img/starships/${resource}.jpg`
+    );
+    if (!request.ok) throw new Error("Couldn't get API from " + resource);
+    const picture = request;
+    return picture;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export function createUrlDetail(payload) {
+  const firstIndex = payload.url.indexOf("starship");
+  const lastIndex = payload.url.lastIndexOf("/");
+  const url = payload.url.slice(firstIndex, lastIndex).replace("/", "&id=");
+  return url;
+}

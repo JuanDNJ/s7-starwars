@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import Starships from "./pages/Starships";
 import Menu from "./components/Menu";
 import Page404 from "./pages/Page404";
-import Deatils from "./components/Details";
+import Deatils from "./pages/Details";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
@@ -85,7 +85,7 @@ export default function App() {
               <Route path="/starships" element={<Starships />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
-              <Route path="/starships/detail/:id" element={<Deatils />} />
+              <Route path="/starships/detail" element={<Deatils />} />
               <Route path="*" element={<Page404 />} />
             </Routes>
           </section>
