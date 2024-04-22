@@ -61,7 +61,7 @@ export default function Header() {
         sticky="sticky top-12"
       >
         <section className="col-span-12 flex justify-center gap-4">
-          <GoToPage url="/">Home</GoToPage>
+          <GoToPage url="/home">Home</GoToPage>
           <GoToPage url="/starships">StarShips</GoToPage>
         </section>
       </Menu>

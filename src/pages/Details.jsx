@@ -12,7 +12,7 @@ export default function Deatils() {
   // Buscando el parametro id de la ruta
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
-
+  console.log(id);
   // REDUX TOOLKIT
   const { isLoading, error, data } = useAppSelector((state) => state.starShip);
   const dispatch = useAppDispatch();
@@ -23,9 +23,10 @@ export default function Deatils() {
 
   return (
     <section className="flex flex-col gap-4">
-      {isLoading && <Loading />}
       {error && "Error loading"}
-      {data && (
+      {isLoading ? (
+        <Loading />
+      ) : (
         <>
           <Aside top>{data.name}</Aside>
           <section className="order-0">

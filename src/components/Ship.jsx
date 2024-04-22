@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { createUrlDetail } from "../utils";
-
+import viewShip from "../assets/images/svg/view.svg";
 export default function Ship({ payload }) {
   return (
     payload && (
@@ -9,9 +9,9 @@ export default function Ship({ payload }) {
         <span className="text-sm">{payload.model}</span>
         <Link
           to={`/starships/detail/${createUrlDetail(payload.url)}`}
-          className="px-2 py-1 absolute bottom-4 right-4"
+          className="px-2 py-1 absolute bottom-4 right-4 hover:scale-90"
         >
-          View
+          <img src={viewShip} alt="View Ship Detail" title="View Ship Detail" />
         </Link>
       </article>
     )

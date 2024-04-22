@@ -6,7 +6,13 @@ export const starShips = createSlice({
   initialState: {
     isLoading: false,
     error: null,
-    ships: {},
+    ships: {
+      count: 0,
+      next: "",
+      previous: "",
+      results: [],
+    },
+    data: [],
   },
   reducers: {
     setStarships: (state, action) => action.payload,
@@ -21,6 +27,7 @@ export const starShips = createSlice({
       state.isLoading = false;
       state.error = false;
       state.ships = action.payload;
+      state.data = [...state.data, ...action.payload.results];
     });
     builder.addCase(fetchStarships.rejected, (state) => {
       state.isLoading = false;
@@ -34,8 +41,8 @@ export const starShips = createSlice({
     builder.addCase(fetchGetStarShipsPage.fulfilled, (state, action) => {
       state.isLoading = false;
       state.error = false;
-      state.ships.next = action.payload.next;
-      state.ships.results = [...state.ships.results, ...action.payload.results];
+
+      state.data = [...state.data, ...action.payload.results];
     });
     builder.addCase(fetchGetStarShipsPage.rejected, (state) => {
       state.isLoading = false;

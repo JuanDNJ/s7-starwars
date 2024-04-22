@@ -3,7 +3,7 @@ import { STAR_WARS } from "../../utils";
 
 export const fetchStarships = createAsyncThunk("starships/ships", async () => {
   try {
-    const request = await fetch(`${STAR_WARS}starships/`);
+    const request = await fetch(`${STAR_WARS}starships`);
     if (!request.ok) throw new Error("Couldn't get API from starships");
     const result = await request.json();
     return result;
@@ -27,7 +27,7 @@ export const fetchGetStarShipById = createAsyncThunk(
 );
 
 export const fetchGetStarShipsPage = createAsyncThunk(
-  "starship/ship",
+  "nextStarships/ships",
   async (page) => {
     try {
       const request = await fetch(`${STAR_WARS}starships/?page=${page}`);
