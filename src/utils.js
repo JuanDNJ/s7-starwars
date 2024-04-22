@@ -1,4 +1,4 @@
-const STAR_WARS = "https://swapi.dev/api/";
+export const STAR_WARS = "https://swapi.py4e.com/api/";
 
 export async function getApi(resource) {
   try {
