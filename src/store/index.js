@@ -1,13 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
-import starShipsReduces from "./slices/starships";
 import { useSelector, useDispatch } from "react-redux";
+
+import starShipsReduces from "./slices/starships";
+import starShipReduces from "./slices/ship";
+
+const useAppSelector = useSelector;
+const useAppDispatch = useDispatch;
 
 const store = configureStore({
   reducer: {
     starShips: starShipsReduces,
+    starShip: starShipReduces,
   },
 });
 
-export const useAppSelector = useSelector;
-export const useAppDispatch = useDispatch;
+export { useAppSelector, useAppDispatch };
 export default store;
