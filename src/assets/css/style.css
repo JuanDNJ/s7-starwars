@@ -1,14 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer base {
+  @font-face {
+    font-family: "Star Jedi";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/fonts/StarJedi.ttf) format("ttf"),
+      url(/fonts/StarJedi.woff2) format("woff2"),
+      url(/fonts/StarJedi.woff) format("woff");
+  }
+  @font-face {
+    font-family: "Oswald Regular";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/fonts/Oswald-VariableFont_wght.ttf) format("ttf"),
+      url(/fonts/Oswald-Regular.woff2) format("woff2"),
+      url(/fonts/Oswald-Regular.woff) format("woff");
+  }
+  @font-face {
+    font-family: "Oswald Light";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/fonts/Oswald-VariableFont_wght.ttf) format("ttf"),
+      url(/fonts/Oswald-Light.woff2) format("woff2"),
+      url(/fonts/Oswald-Light.woff) format("woff");
+  }
+}
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --color-text: rgb(241, 241, 192);
+  font-family: "Oswald Regular", Inter, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  font-size: 1em;
+  font-size: 1.1em;
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: var(--color-text);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

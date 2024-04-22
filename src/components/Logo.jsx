@@ -2,7 +2,7 @@ export default function Logo({ title, imageSrc }) {
   let render = "";
   if (title)
     render = (
-      <h1 className="text-yellow-400 text-6xl font-bold text-center">
+      <h1 className="font-title text-yellow-400 text-7xl font-bold text-center">
         {title}
       </h1>
     );
