@@ -1,3 +1,3 @@
 export default function MainHeader({ children }) {
-  return <header>{children}</header>;
+  return <header className="bg-black">{children}</header>;
 }

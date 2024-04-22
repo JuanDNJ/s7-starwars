@@ -1,22 +1,29 @@
-export default function Logo({ title, imageSrc }) {
-  let render = "";
-  if (title)
-    render = (
-      <h1 className="font-title text-yellow-400 text-7xl font-bold text-center">
-        {title}
-      </h1>
-    );
-  if (imageSrc)
-    render = <img width={32} height={32} src={imageSrc} alt={"Logo"} />;
+export default function Logo({ title, subTitle }) {
+  let prevTitle = "";
+  let prevSubtitle = "";
 
-  if (title && imageSrc)
-    render = (
-      <div className="flex items-center justify-center">
-        <h1 className="text-yellow-400 text-6xl font-bold text-center">
-          {title}
-        </h1>
-        <img width={32} height={32} src={imageSrc} alt={"Logo"} />
-      </div>
+  if (title)
+    prevTitle = (
+      <strong className="font-title text-yellow-400 text-5xl md:text-7xl font-bold text-center">
+        {title}
+      </strong>
     );
-  return <section>{render}</section>;
+  if (subTitle)
+    prevSubtitle = (
+      <strong className="font-title text-yellow-400 text-5xl md:text-7xl font-bold text-center">
+        {subTitle}
+      </strong>
+    );
+
+  return (
+    <section className="flex items-center justify-center p-4">
+      {title && !subTitle && <div>{prevTitle}</div>}
+      {title && subTitle && (
+        <div className="flex flex-col">
+          {prevTitle}
+          {prevSubtitle}
+        </div>
+      )}
+    </section>
+  );
 }
