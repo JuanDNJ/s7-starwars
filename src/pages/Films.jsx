@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { getApi } from "../utils";
+import { STAR_WARS, getApi } from "../utils";
 
 export default function Films() {
   const [searchParams] = useSearchParams();
@@ -9,8 +9,17 @@ export default function Films() {
   const [renderFilms, renderSetFilms] = useState([]);
 
   const getFilms = async () => {
-    const filmShip = await getApi("starships/" + id);
-    setFilms(() => filmShip.films);
+    try {
+      const filmShip = await fetch(STAR_WARS + "starships/" + id);
+      if (filmShip.ok) {
+        const json = await filmShip.json();
+        setFilms(() => json.films);
+      } else {
+        setFilms(() => []);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
   const getAllfilms = async () => {
     let arr = [];
