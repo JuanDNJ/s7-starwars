@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { STAR_WARS, getApi } from "../utils";
+import { STAR_WARS } from "../utils";
 
 export default function Films() {
   const [searchParams] = useSearchParams();
