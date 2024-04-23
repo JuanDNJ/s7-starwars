@@ -12,7 +12,6 @@ import { setUser } from "./store/slices/user.js";
 onAuthStateChanged(appAuth, (user) => {
   if (user) {
     console.log(user);
-
     store.dispatch(
       setUser({
         email: user.email,
@@ -25,18 +24,11 @@ onAuthStateChanged(appAuth, (user) => {
     );
   } else {
     console.log("no user");
-    store.dispatch(
-      setUser({
-        email: "",
-        name: "",
-        uid: "",
-        isLogin: false,
-      })
-    );
+    store.dispatch(setUser({}));
   }
-  app.render(
-    <Provider store={store}>
-      <AppRoutes />
-    </Provider>
-  );
 });
+app.render(
+  <Provider store={store}>
+    <AppRoutes />
+  </Provider>
+);
