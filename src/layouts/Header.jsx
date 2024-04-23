@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <Fragment>
       <Menu sticky="sticky top-0">
-        <section className="col-span-8 md:col-span-6 flex gap-4">
+        <section className="flex-1 flex gap-4 ">
           <GoToPage _blank icon url={"https://www.facebook.com/starwars.es"}>
             <img
               width={20}
@@ -57,7 +57,7 @@ export default function Header() {
             />
           </GoToPage>
         </section>
-        <section className="col-span-4 md:col-span-6 flex justify-end gap-4">
+        <section className="flex gap-4">
           {isLogin ? (
             <UserBadget />
           ) : (
@@ -84,10 +84,11 @@ export default function Header() {
         <Logo title="Star" subTitle="Wars" />
       </MainHeader>
       <Menu
+        justify="center"
         border="border border-stone-800 border-l-0 border-r-0"
-        sticky="sticky top-10"
+        sticky="sticky top-11"
       >
-        <section className="col-span-12 flex justify-center gap-4">
+        <section className="flex justify-center gap-4">
           <GoToPage url="/home">Welcome</GoToPage>
           {isLogin && <GoToPage url="/starships">StarShips</GoToPage>}
         </section>

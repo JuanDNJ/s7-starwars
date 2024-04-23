@@ -25,16 +25,32 @@ export default function Signup() {
 
   return (
     !isLogin && (
-      <section>
-        <form onSubmit={handlerSubmit}>
-          <input name="email" type="email" placeholder="E-mail" required />
+      <section className="flex flex-col gap-4 items-center justify-center min-h-[50vh]">
+        <h2 className="font-title text-yellow-400">Signup new user</h2>
+        <form
+          onSubmit={handlerSubmit}
+          className="flex flex-col justify-center w-[50vh] h-[25vh] text-white gap-4  py-4 px-8"
+        >
           <input
-            name="password"
-            type="password"
-            placeholder="password"
+            className="p-2 rounded-md ring-1 ring-yellow-400"
+            name="email"
+            type="email"
+            placeholder="E-mail"
             required
           />
-          <button type="submit">Sign Up</button>
+          <input
+            className="p-2 rounded-md ring-1 ring-yellow-400"
+            name="password"
+            type="password"
+            placeholder="Password"
+            required
+          />
+          <button
+            className="bg-green-200 rounded-md p-2 text-black"
+            type="submit"
+          >
+            Sign Up
+          </button>
         </form>
         <GoToPage url="/login">Login</GoToPage>
       </section>

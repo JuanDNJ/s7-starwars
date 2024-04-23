@@ -27,26 +27,29 @@ export default function Login() {
   }, [isLogin]);
   return (
     <section className="flex flex-col gap-4 items-center justify-center min-h-[50vh]">
-      <h2>Login user</h2>
+      <h2 className="font-title text-yellow-400">Login user</h2>
       <form
         onSubmit={handlerLogin}
-        className="flex flex-col justify-center w-[33vh] h-[25vh] text-black gap-4 bg-stone-900 py-4 px-8"
+        className="flex flex-col justify-center w-[50vh] h-[25vh] text-white gap-4  py-4 px-8"
       >
         <input
-          className="p-2 rounded-md ring-1 ring-yellow-400"
+          className="p-2 rounded-md ring-1 ring-yellow-400 "
           name="email"
           type="email"
-          placeholder="Email"
+          placeholder="E-mail"
           required
         />
         <input
-          className="p-2 rounded-md"
+          className="p-2 rounded-md ring-1 ring-yellow-400"
           name="password"
           type="password"
           placeholder="Password"
           required
         />
-        <button type="submit" className=" bg-green-200 rounded-md p-2 ">
+        <button
+          type="submit"
+          className="bg-green-200 rounded-md p-2 text-black"
+        >
           Login
         </button>
       </form>

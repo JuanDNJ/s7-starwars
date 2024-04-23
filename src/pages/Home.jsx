@@ -5,8 +5,8 @@ import loginIcon from "../assets/images/svg/login.svg";
 export default function Home() {
   return (
     <section className="flex flex-col">
-      <article className="p-4 flex flex-col gap-4 text-2xl text-center">
-        <h1 className=" text-3xl">
+      <article className="p-4 flex flex-col gap-4 text-xl text-center">
+        <h1 className="text-2xl font-title text-yellow-400">
           Welcome to our Star Wars API information page!
         </h1>
         <p>
@@ -41,7 +41,10 @@ export default function Home() {
           journey through the galaxy of Star Wars!
         </p>
       </article>
-      <Menu>
+      <Menu
+        justify="center"
+        border="border border-stone-800 border-l-0 border-r-0"
+      >
         <section className="col-span-12 flex flex-col md:flex-row items-center md:justify-end gap-4">
           <GoToPage url={"/login"}>
             <div className="flex items-center gap-2 ">
