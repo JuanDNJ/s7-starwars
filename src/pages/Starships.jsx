@@ -20,7 +20,6 @@ export default function Starships() {
       ""
     );
     dispatch(fetchGetStarShipsPage(next));
-    console.log(shipsAll);
   };
 
   return (
@@ -34,7 +33,7 @@ export default function Starships() {
         </article>
       )}
       <footer>
-        <button onClick={handlerNextPage}>Add more ships</button>
+        <button onClick={handlerNextPage}>view more</button>
       </footer>
     </article>
   );
