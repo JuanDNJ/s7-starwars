@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Fragment, Suspense, useEffect } from "react";
+import { Fragment, Suspense } from "react";
 import {
   LazyHome,
   LazyShips,
@@ -13,15 +13,12 @@ import {
 } from "./lazy";
 
 import { useAppDispatch } from "../store";
-import { fetchStarships } from "../store/tunks";
+import { fetchGetStarShipsPage } from "../store/tunks";
 import Header from "../layouts/Header";
 // import Loading from "../components/Loading";
 
 export default function AppRoutes() {
   const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(fetchStarships());
-  }, []);
   return (
     <Suspense fallback={<h1 style={{ color: "#333" }}>Loadding ...</h1>}>
       <BrowserRouter>
@@ -38,7 +35,11 @@ export default function AppRoutes() {
           >
             <Route index element={<LazyHome />} />
             <Route path="/home" element={<LazyHome />} />
-            <Route path="/starships" element={<LazyShips />} />
+            <Route
+              path="/starships"
+              element={<LazyShips />}
+              loader={dispatch(fetchGetStarShipsPage(1))}
+            />
             <Route path="/starships/detail" element={<LazyDeatils />}>
               <Route path="pilots" element={<LazyPilots />}></Route>
               <Route path="films" element={<LazyFilms />}></Route>
