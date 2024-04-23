@@ -14,8 +14,6 @@ export default function Films() {
       if (filmShip.ok) {
         const json = await filmShip.json();
         setFilms(() => json.films);
-      } else {
-        setFilms(() => []);
       }
     } catch (error) {
       console.error(error);
