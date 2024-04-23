@@ -5,19 +5,21 @@ import Menu from "../components/Menu";
 import facebook from "../assets/images/svg/facebook.svg";
 import x from "../assets/images/svg/x.svg";
 import youtube from "../assets/images/svg/youtube.svg";
+import loginIcon from "../assets/images/svg/login.svg";
+import signupIcon from "../assets/images/svg/signup.svg";
 import instagram from "../assets/images/png/instagram.png";
 import { useAppSelector } from "../store";
-import { useEffect } from "react";
-import { signOut } from "firebase/auth";
-import { appAuth } from "../firebase";
+
+import { Fragment } from "react";
+import UserBadget from "../components/UserBadget";
 
 export default function Header() {
-  const { name, email, isLogin } = useAppSelector((state) => state.user);
-  useEffect(() => {}, []);
+  const { isLogin } = useAppSelector((state) => state.user);
+
   return (
-    <>
+    <Fragment>
       <Menu sticky="sticky top-0">
-        <section className="col-span-8 md:col-span-6 flex gap-2">
+        <section className="col-span-8 md:col-span-6 flex gap-4">
           <GoToPage _blank icon url={"https://www.facebook.com/starwars.es"}>
             <img
               width={20}
@@ -57,20 +59,24 @@ export default function Header() {
         </section>
         <section className="col-span-4 md:col-span-6 flex justify-end gap-4">
           {isLogin ? (
-            <div className="flex items-center gap-4">
-              <div className="flex flex-col justify-center items-center gap-2 rounded-full w-8 h-8 border-2 border-yellow-400">
-                <strong className=" text-pink-500">
-                  {name[0].toUpperCase()}
-                </strong>
-              </div>
-              <button onClick={() => signOut(appAuth)}>LogOut</button>
-            </div>
+            <UserBadget />
           ) : (
-            <>
-              <GoToPage url="/login">Login</GoToPage>
-
-              <GoToPage url="/signup">signup</GoToPage>
-            </>
+            <Fragment>
+              <GoToPage url="/login">
+                <img
+                  src={loginIcon}
+                  alt="Login User"
+                  title="You have an account?"
+                />
+              </GoToPage>
+              <GoToPage url="/signup">
+                <img
+                  src={signupIcon}
+                  alt="Sign Up User"
+                  title="You do not have an account"
+                />
+              </GoToPage>
+            </Fragment>
           )}
         </section>
       </Menu>
@@ -79,13 +85,13 @@ export default function Header() {
       </MainHeader>
       <Menu
         border="border border-stone-800 border-l-0 border-r-0"
-        sticky="sticky top-12"
+        sticky="sticky top-10"
       >
         <section className="col-span-12 flex justify-center gap-4">
-          <GoToPage url="/home">Home</GoToPage>
-          <GoToPage url="/starships">StarShips</GoToPage>
+          <GoToPage url="/home">Welcome</GoToPage>
+          {isLogin && <GoToPage url="/starships">StarShips</GoToPage>}
         </section>
       </Menu>
-    </>
+    </Fragment>
   );
 }

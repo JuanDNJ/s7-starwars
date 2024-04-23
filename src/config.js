@@ -1,9 +1,9 @@
 // Your web app's Firebase configuration
 export const firebaseConfig = {
-  apiKey: "AIzaSyC91cw2MlmV85ACdFmvsZvjQvewFgKo-kM",
-  authDomain: "star-wars-2fdd6.firebaseapp.com",
-  projectId: "star-wars-2fdd6",
-  storageBucket: "star-wars-2fdd6.appspot.com",
-  messagingSenderId: "858211205906",
-  appId: "1:858211205906:web:c9c6f9668abcb18275a9cb",
+  apiKey: import.meta.env.API_KEY,
+  authDomain: import.meta.env.AUTH_DOMAIN,
+  projectId: import.meta.env.PROJECT_ID,
+  storageBucket: import.meta.env.STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.MESSAGING_SENDER_ID,
+  appId: import.meta.env.APP_ID,
 };

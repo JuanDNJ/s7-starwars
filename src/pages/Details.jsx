@@ -12,9 +12,9 @@ export default function Deatils() {
   // Buscando el parametro id de la ruta
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
-  console.log(id);
   // REDUX TOOLKIT
   const { isLoading, error, data } = useAppSelector((state) => state.starShip);
+
   const dispatch = useAppDispatch();
 
   useEffect(() => {

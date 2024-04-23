@@ -6,9 +6,7 @@ export const fetchSearchStarships = createAsyncThunk(
   async (search) => {
     try {
       const request = await fetch(`${STAR_WARS}starships/?search=${search}`);
-      if (!request.ok) throw new Error("Couldn't get API from starships");
-      const result = await request.json();
-      return result;
+      if (request.ok) return await request.json();
     } catch (error) {
       console.error(error);
     }
@@ -20,9 +18,7 @@ export const fetchGetStarShipById = createAsyncThunk(
   async (id) => {
     try {
       const request = await fetch(`${STAR_WARS}starships/${id}`);
-      if (!request.ok) throw new Error("Couldn't get API from starships");
-      const result = await request.json();
-      return result;
+      if (request.ok) return await request.json();
     } catch (error) {
       console.error(error);
     }
@@ -34,9 +30,7 @@ export const fetchGetStarShipsPage = createAsyncThunk(
   async (page) => {
     try {
       const request = await fetch(`${STAR_WARS}starships/?page=${page}`);
-      if (!request.ok) throw new Error("Couldn't get API from starships");
-      const result = await request.json();
-      return result;
+      if (request.ok) return await request.json();
     } catch (error) {
       console.error(error);
     }

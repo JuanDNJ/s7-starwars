@@ -7,7 +7,7 @@ export default function GoToPage({ children, url, _blank, icon }) {
 
   if (icon)
     linkClass =
-      "flex justify-center items-center text-violet-400 font-extrabold rounded-full border border-stone-800 h-8 w-8 hover:border-stone-400";
+      "flex justify-center items-center text-violet-400 font-extrabold  ";
 
   if (_blank) target = "_blank";
 

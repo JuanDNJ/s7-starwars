@@ -1,30 +1,22 @@
-import ReactDOM from "react-dom/client";
 import "./assets/css/style.css";
 import { Provider } from "react-redux";
-import store from "./store";
-import AppRoutes from "./routes/AppRoutes.jsx";
 import { appAuth } from "./firebase.js";
 import { onAuthStateChanged } from "firebase/auth";
-const app = ReactDOM.createRoot(document.getElementById("root"));
-
 import { setUser } from "./store/slices/user.js";
-
+import { createUser } from "./utils.js";
+import ReactDOM from "react-dom/client";
+import store from "./store";
+import AppRoutes from "./routes/AppRoutes.jsx";
+const app = ReactDOM.createRoot(document.getElementById("root"));
+// Funcion que se ejecuta cuando iniciamos sessión o creamos una cuenta
 onAuthStateChanged(appAuth, (user) => {
   if (user) {
-    store.dispatch(
-      setUser({
-        email: user.email,
-        name: !user.displayName
-          ? user.email.replace("@gmail.com", "")
-          : user.displayName,
-        uid: user.uid,
-        isLogin: !!user,
-      })
-    );
+    store.dispatch(setUser({ ...createUser(user) }));
   } else {
     store.dispatch(setUser({}));
   }
 });
+
 app.render(
   <Provider store={store}>
     <AppRoutes />

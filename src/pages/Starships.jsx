@@ -14,7 +14,6 @@ export default function Starships() {
   const dispatch = useAppDispatch();
 
   const handlerNextPage = () => {
-    console.log(shipsAll.ships.next);
     const next = shipsAll.ships.next.replace(
       STAR_WARS + "starships/?page=",
       ""

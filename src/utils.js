@@ -1,23 +1,18 @@
 export const STAR_WARS = "https://swapi.py4e.com/api/";
 
-export async function getApi(resource) {
-  try {
-    const request = await fetch(`${STAR_WARS}${resource}`);
-    if (!request.ok) throw new Error("Couldn't get API from " + resource);
-    const result = await request.json();
-    return result;
-  } catch (error) {
-    console.error(error);
-  }
-}
+export const newUser = {
+  email: "",
+  displayName: "",
+  uid: "",
+  isLogin: false,
+};
+
 export async function getPicture(resource) {
   try {
     const request = await fetch(
       `https://starwars-visualguide.com/assets/img/starships/${resource}.jpg`
     );
-    if (!request.ok) throw new Error("Couldn't get API from " + resource);
-    const picture = request;
-    return picture;
+    if (request.ok) return request;
   } catch (error) {
     console.error(error);
   }
@@ -29,3 +24,15 @@ export function createUrlDetail(payload) {
   const url = payload.slice(firstIndex, lastIndex).replace("/", "&id=");
   return `?${url}`;
 }
+
+export const createUser = (user) => {
+  if (user.email && !user.displayName) {
+    newUser.displayName = user.email.slice(0, user.email.indexOf("@"));
+  } else {
+    newUser.displayName = user.displayName;
+  }
+  newUser.email = user.email;
+  newUser.uid = user.uid;
+  newUser.isLogin = !!user;
+  return newUser;
+};
