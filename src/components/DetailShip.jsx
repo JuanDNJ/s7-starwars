@@ -3,7 +3,7 @@ import DetailShipItem from "./DetailShipItem";
 
 export default function DetailShip({ ship }) {
   return (
-    <article className="flex gap-4">
+    <article className="flex flex-col md:flex-row gap-4">
       <div className="flex-1">
         <DetailPicture id={ship && ship.pictureId} />
       </div>
