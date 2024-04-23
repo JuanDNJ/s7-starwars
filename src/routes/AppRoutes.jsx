@@ -3,7 +3,7 @@ import { Fragment, Suspense } from "react";
 import {
   LazyHome,
   LazyShips,
-  LazyDeatils,
+  LazyDetails,
   LazyPilots,
   LazyFilms,
   Lazy404,
@@ -40,7 +40,7 @@ export default function AppRoutes() {
               element={<LazyShips />}
               loader={dispatch(fetchGetStarShipsPage(1))}
             />
-            <Route path="/starships/detail" element={<LazyDeatils />}>
+            <Route path="/starships/detail" element={<LazyDetails />}>
               <Route path="pilots" element={<LazyPilots />}></Route>
               <Route path="films" element={<LazyFilms />}></Route>
               <Route path="*" element={<Lazy404 />} />
