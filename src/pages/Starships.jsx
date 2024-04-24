@@ -14,26 +14,31 @@ export default function Starships() {
   const dispatch = useAppDispatch();
 
   const handlerNextPage = () => {
-    const next = shipsAll.ships.next.replace(
-      STAR_WARS + "starships/?page=",
-      ""
-    );
+    const next =
+      shipsAll.ships.next &&
+      shipsAll.ships.next.replace(STAR_WARS + "starships/?page=", "");
     dispatch(fetchGetStarShipsPage(next));
   };
 
   return (
-    <article>
+    <article className="py-2">
       {isLoading && <Loading />}
-      {error && <h1>Error</h1>}
       {data && (
-        <article className="flex flex-col py-2">
-          <Aside>StarShips {data.length}</Aside>
-          <List payload={data} />
-        </article>
+        <>
+          <article className="flex flex-col">
+            <Aside>StarShips {data.length}</Aside>
+            <List payload={data} />
+          </article>
+          <footer className="flex justify-end p-4">
+            <button
+              onClick={handlerNextPage}
+              className="text-yellow-400 hover:text-yellow-600"
+            >
+              View more
+            </button>
+          </footer>
+        </>
       )}
-      <footer>
-        <button onClick={handlerNextPage}>view more</button>
-      </footer>
     </article>
   );
 }

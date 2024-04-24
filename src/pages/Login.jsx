@@ -33,14 +33,14 @@ export default function Login() {
         className="flex flex-col justify-center w-[50vh] h-[25vh] text-white gap-4  py-4 px-8"
       >
         <input
-          className="p-2 rounded-md ring-1 ring-yellow-400 "
+          className="p-2 rounded-md ring-1 ring-yellow-400 text-black"
           name="email"
           type="email"
           placeholder="E-mail"
           required
         />
         <input
-          className="p-2 rounded-md ring-1 ring-yellow-400"
+          className="p-2 rounded-md ring-1 ring-yellow-400 text-black"
           name="password"
           type="password"
           placeholder="Password"
