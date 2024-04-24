@@ -53,3 +53,8 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   @apply gap-4;
 }
+.grid__films {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  @apply gap-4;
+}

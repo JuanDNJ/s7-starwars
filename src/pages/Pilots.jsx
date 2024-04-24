@@ -1,7 +1,6 @@
+import { useSearchParams } from "react-router-dom";
 export default function Pilots() {
-  return (
-    <div>
-      <h1>Pilots</h1>
-    </div>
-  );
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get("id");
+  return "pilots" + id;
 }

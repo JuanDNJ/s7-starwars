@@ -39,14 +39,14 @@ export default function Deatils() {
                   <GoToPage url={`films?id=${id}`}>Films</GoToPage>
                 )}
                 {data.pilots && data.pilots.length > 0 && (
-                  <GoToPage url={"pilots"}>Pilots</GoToPage>
+                  <GoToPage url={`pilots?id=${id}`}>Pilots</GoToPage>
                 )}
               </section>
             </Menu>
           </Aside>
         </>
       )}
-      <section className="order-2 p-4">
+      <section className="order-2 py-4">
         <Outlet />
       </section>
     </section>

@@ -1,5 +1,5 @@
 export const STAR_WARS = "https://swapi.py4e.com/api/";
-
+export const VISUAL_GUIDE_URL = "https://starwars-visualguide.com/assets/img/";
 export const newUser = {
   email: "",
   displayName: "",
@@ -35,4 +35,21 @@ export const createUser = (user) => {
   newUser.uid = user.uid;
   newUser.isLogin = !!user;
   return newUser;
+};
+
+export const getShip = async (id, search, callBack) => {
+  try {
+    const filmShip = await fetch(STAR_WARS + "starships/" + id);
+    if (filmShip.ok) {
+      const json = await filmShip.json();
+      if (search === "films") {
+        callBack(() => json.films);
+      }
+      if (search === "pilots") {
+        callBack(() => json.pilots);
+      }
+    }
+  } catch (error) {
+    console.error(error);
+  }
 };

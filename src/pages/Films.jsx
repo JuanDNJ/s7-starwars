@@ -1,25 +1,15 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { STAR_WARS } from "../utils";
+import { getShip } from "../utils";
+import CardFilm from "../components/CardFilm";
 
 export default function Films() {
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
   const [films, setFilms] = useState();
-  const [renderFilms, renderSetFilms] = useState([]);
+  const [renderFilms, setRenderFilms] = useState([]);
 
-  const getFilms = async () => {
-    try {
-      const filmShip = await fetch(STAR_WARS + "starships/" + id);
-      if (filmShip.ok) {
-        const json = await filmShip.json();
-        setFilms(() => json.films);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  const getAllfilms = async () => {
+  const getAllFilms = async () => {
     let arr = [];
     if (films) {
       for (let element of films) {
@@ -32,30 +22,23 @@ export default function Films() {
     } else {
       return arr;
     }
-
-    // const query = await fetch(films[0]);
-    // const json = await query.json();
   };
   const render = async () => {
-    const flms = await getAllfilms();
-    renderSetFilms(() => flms);
+    const flms = await getAllFilms();
+    setRenderFilms(() => flms);
   };
 
   useEffect(() => {
-    getFilms();
+    getShip(id, "films", setFilms);
     render();
   }, [id, films]);
 
   return (
-    <div>
-      <h1>
-        {renderFilms &&
-          renderFilms.map((payload, index) => (
-            <div key={index}>
-              <h2>{payload.title}</h2>
-            </div>
-          ))}
-      </h1>
+    <div className="grid__films">
+      {renderFilms &&
+        renderFilms.map((payload, index) => (
+          <CardFilm key={index} film={payload} />
+        ))}
     </div>
   );
 }
