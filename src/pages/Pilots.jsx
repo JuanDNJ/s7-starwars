@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
-import CardPilot from "../components/CardPilots";
+// import CardPilot from "../components/CardPilots";
 import { getShip } from "../utils";
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 export default function Pilots() {
   const [pilots, setPilots] = useState([]);
   const [renderPilots, setRenderPilots] = useState();
@@ -28,15 +28,15 @@ export default function Pilots() {
   useEffect(() => {
     getShip(id, "pilots", setPilots);
     render();
-    console.log(pilots);
-  }, []);
+  }, [id, pilots]);
   return (
-    <Fragment>
-      {renderPilots &&
-        renderPilots.map((rec) => {
-          JSON.stringify(rec);
-        })}
+    <>
+      {renderPilots.map((rec, index) => {
+        <h1 key={index} className="text-white">
+          {rec.name}
+        </h1>;
+      })}
       {/* <CardPilot pilot={id} />*/}
-    </Fragment>
+    </>
   );
 }
