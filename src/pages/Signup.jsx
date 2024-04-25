@@ -29,24 +29,24 @@ export default function Signup() {
         <h2 className="font-title text-yellow-400">Signup new user</h2>
         <form
           onSubmit={handlerSubmit}
-          className="flex flex-col justify-center w-[50vh] h-[25vh] text-white gap-4  py-4 px-8"
+          className="flex flex-col justify-center w-[50vh] h-[25vh]  gap-4  py-4 px-8"
         >
           <input
-            className="p-2 rounded-md ring-1 ring-yellow-400 text-black"
+            className="p-2 rounded-md ring-1 ring-yellow-400 bg-black text-white"
             name="email"
             type="email"
             placeholder="E-mail"
             required
           />
           <input
-            className="p-2 rounded-md ring-1 ring-yellow-400 text-black"
+            className="p-2 rounded-md ring-1 ring-yellow-400 bg-black text-white"
             name="password"
             type="password"
             placeholder="Password"
             required
           />
           <button
-            className="bg-green-200 rounded-md p-2 text-black"
+            className="bg-green-200 rounded-md p-2 text-stone-800"
             type="submit"
           >
             Sign Up

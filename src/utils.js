@@ -39,13 +39,14 @@ export const createUser = (user) => {
 
 export const getShip = async (id, search, callBack) => {
   try {
-    const filmShip = await fetch(STAR_WARS + "starships/" + id);
-    if (filmShip.ok) {
-      const json = await filmShip.json();
+    const request = await fetch(STAR_WARS + "starships/" + id);
+    if (request.ok) {
+      const json = await request.json();
       if (search === "films") {
         callBack(() => json.films);
       }
       if (search === "pilots") {
+        console.log(json.pilots);
         callBack(() => json.pilots);
       }
     }
