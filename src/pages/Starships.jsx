@@ -9,7 +9,7 @@ import { STAR_WARS } from "../utils";
 export default function Starships() {
   const shipsAll = useAppSelector((state) => state.starShips);
 
-  const { isLoading, error, data } = shipsAll;
+  const { isLoading, data } = shipsAll;
 
   const dispatch = useAppDispatch();
 

@@ -43,11 +43,21 @@ export const getShip = async (id, search, callBack) => {
     if (request.ok) {
       const json = await request.json();
       if (search === "films") {
-        callBack(() => json.films);
+        const pilotsFilms = json.films.map(async (url) => {
+          const pilotResponse = await fetch(url);
+          return pilotResponse.json();
+        });
+        const allFilms = await Promise.all(pilotsFilms);
+        callBack(allFilms);
       }
       if (search === "pilots") {
-        console.log(json.pilots);
-        callBack(() => json.pilots);
+        // Obtener los pilotos de la nave
+        const pilotsPromises = json.pilots.map(async (url) => {
+          const pilotResponse = await fetch(url);
+          return pilotResponse.json();
+        });
+        const allPilots = await Promise.all(pilotsPromises);
+        callBack(allPilots);
       }
     }
   } catch (error) {

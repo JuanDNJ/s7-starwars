@@ -8,7 +8,6 @@ export default function CardFilm({ film }) {
     const newUrl = cloneFilm.url
       .slice(cloneFilm.url.indexOf("films"), cloneFilm.url.lastIndexOf("/"))
       .concat(".jpg");
-
     cloneFilm = {
       ...cloneFilm,
       newUrl: VISUAL_GUIDE_URL.concat(newUrl),

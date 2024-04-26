@@ -53,8 +53,19 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   @apply gap-4;
 }
-.grid__films {
+.grid__films,
+.grid__pilots {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
   @apply gap-4;
+}
+.invalid {
+  animation: invalidCredentials 600ms ease-in-out infinite alternate;
+}
+
+@keyframes invalidCredentials {
+  100% {
+    color: rgb(240, 100, 123);
+    transform: scale(1.03);
+  }
 }
