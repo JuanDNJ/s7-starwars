@@ -64,6 +64,8 @@ export default function Header() {
             <Fragment>
               <GoToPage url="/login">
                 <img
+                  width={32}
+                  height={32}
                   src={loginIcon}
                   alt="Login User"
                   title="You have an account?"
@@ -71,6 +73,8 @@ export default function Header() {
               </GoToPage>
               <GoToPage url="/signup">
                 <img
+                  width={32}
+                  height={32}
                   src={signupIcon}
                   alt="Sign Up User"
                   title="You do not have an account"
