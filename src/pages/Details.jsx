@@ -48,7 +48,7 @@ export default function Deatils() {
           </Aside>
         </>
       )}
-      <section className="order-2 md:p-6">
+      <section className="order-2">
         <Outlet />
       </section>
     </section>

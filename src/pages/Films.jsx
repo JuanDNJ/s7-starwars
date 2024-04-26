@@ -15,7 +15,7 @@ export default function Films() {
   }, [id]);
 
   return (
-    <div className="grid__films">
+    <div className="grid__films p-4">
       {films &&
         films.map((payload, index) => <CardFilm key={index} film={payload} />)}
     </div>
