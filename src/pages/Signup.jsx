@@ -5,8 +5,10 @@ import GoToPage from "../components/GoToPage";
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../store";
 import ErrorFirebase from "../components/ErrorFirebase";
+import viewPasswordIcon from "../assets/images/svg/view_password.svg";
 export default function Signup() {
   const redirect = useNavigate();
+  const [viewPassword, setWiewPassword] = useState(false);
   const [errorAccount, setErrorAccount] = useState(null);
   const { isLogin } = useAppSelector((state) => state.user);
   const handlerSubmit = (event) => {
@@ -21,6 +23,9 @@ export default function Signup() {
       .catch((err) => {
         setErrorAccount({ ...err });
       });
+  };
+  const handlerViewPassword = () => {
+    setWiewPassword((prev) => !prev);
   };
   useEffect(() => {
     if (isLogin) {
@@ -45,13 +50,27 @@ export default function Signup() {
             required
             placeholder="E-mail"
           />
-          <input
-            className="p-2 rounded-md ring-1 ring-yellow-400 bg-black text-white  w-full"
-            name="password"
-            type="password"
-            placeholder="Password"
-            required
-          />
+          <div className="w-full form-control">
+            <label
+              htmlFor="password"
+              className="password pr-4 active:scale-50 duration-500"
+              onClick={handlerViewPassword}
+            >
+              <img
+                src={viewPasswordIcon}
+                width={28}
+                height={28}
+                alt="View password"
+              />
+            </label>
+            <input
+              className="p-2 rounded-md ring-1 ring-yellow-400 bg-black text-white  w-full"
+              name="password"
+              type={`${(viewPassword && "text") || "password"}`}
+              placeholder="Password"
+              required
+            />
+          </div>
           <button
             className="bg-green-200 rounded-md p-2  text-stone-800 w-full md:w-[50%]"
             type="submit"

@@ -5,8 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../store";
 import ErrorFirebase from "../components/ErrorFirebase";
+import viewPasswordIcon from "../assets/images/svg/view_password.svg";
 export default function Login() {
   const { isLogin } = useAppSelector((state) => state.user);
+  const [viewPassword, setWiewPassword] = useState(false);
   const [errorLogin, setErrorLogin] = useState(null);
   const redirect = useNavigate();
 
@@ -24,6 +26,11 @@ export default function Login() {
         setErrorLogin({ ...err });
       });
   };
+
+  const handlerViewPassword = () => {
+    setWiewPassword((prev) => !prev);
+  };
+
   useEffect(() => {
     if (isLogin) {
       redirect("/");
@@ -46,13 +53,29 @@ export default function Login() {
           placeholder="E-mail"
           required
         />
-        <input
-          className="p-2 rounded-md ring-1 ring-yellow-400 bg-black text-white  w-full"
-          name="password"
-          type="password"
-          placeholder="Password"
-          required
-        />
+        <div className="w-full form-control">
+          <label
+            htmlFor="password"
+            className="password pr-4 active:scale-50 duration-500"
+            onClick={handlerViewPassword}
+          >
+            <img
+              src={viewPasswordIcon}
+              width={28}
+              height={28}
+              alt="View password"
+            />
+          </label>
+          <input
+            className="p-2 rounded-md ring-1 ring-yellow-400 bg-black text-white  w-full"
+            name="password"
+            id="password"
+            type={`${(viewPassword && "text") || "password"}`}
+            placeholder="Password"
+            required
+          />
+        </div>
+
         <button
           type="submit"
           className="bg-green-200 rounded-md p-2  text-stone-800 w-full md:w-[50%]"
