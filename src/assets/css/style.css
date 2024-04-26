@@ -37,7 +37,7 @@
   line-height: 1.5;
   font-weight: 400;
   font-size: 1em;
-  color: rgb(131, 131, 129);
+  color: rgb(187, 187, 187);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -55,9 +55,12 @@
   background-color: #faf880;
 }
 body {
-  @apply flex flex-col bg-black min-h-svh min-w-80;
+  display: grid;
+  background-color: #010101fc;
+  height: 100vh;
+  min-width: 100vw;
   background-image: url("/klipartz.com.png");
-  background-position: top center;
+  background-position: center top;
   background-repeat: no-repeat;
   background-size: contain;
   background-attachment: fixed;
@@ -66,7 +69,6 @@ body {
 .my__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-
 }
 .grid__films,
 .grid__pilots {
@@ -74,7 +76,9 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
   @apply gap-4;
 }
-
+.blur {
+  backdrop-filter: blur(3px);
+}
 .form-control {
   position: relative;
   z-index: 1;

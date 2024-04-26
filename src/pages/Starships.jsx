@@ -21,7 +21,7 @@ export default function Starships() {
   };
 
   return (
-    <article className="py-2">
+    <article className="py-2 bg-[rgba(0,0,0,.5)]">
       {isLoading && <Loading />}
       {data && (
         <article className="flex flex-col py-8 gap-8">

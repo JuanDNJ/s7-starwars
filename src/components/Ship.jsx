@@ -4,8 +4,8 @@ import viewShip from "../assets/images/svg/view.svg";
 export default function Ship({ payload }) {
   return (
     payload && (
-      <article className="min-w-80 min-h-28 p-4 bg-[rgba(33,33,33,.7)] relative">
-        <h2 className="text-2xl text-yellow-200">{payload.name}</h2>
+      <article className="min-w-80 min-h-28 p-4 bg-[rgba(33,33,33,.3)] relative rounded-md">
+        <h2 className="text-2xl text-yellow-100">{payload.name}</h2>
         <span className="text-sm">{payload.model}</span>
         <Link
           to={`/starships/detail/${createUrlDetail(payload.url)}`}
