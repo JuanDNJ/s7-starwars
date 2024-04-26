@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function GoToPage({ children, url, _blank, icon }) {
   let target = "";
   let linkClass =
-    "text-sm font-bold border-b-[1px] pb-1 border-b-transparent hover:border-b-stone-500 hover:text-yellow-400";
+    "text-sm font-bold border-b-[1px] pb-1 border-b-transparent hover:border-b-stone-500 hover:text-yellow-300";
 
   if (icon)
     linkClass =
@@ -12,7 +12,11 @@ export default function GoToPage({ children, url, _blank, icon }) {
   if (_blank) target = "_blank";
 
   return (
-    <Link target={target} className={linkClass} to={url}>
+    <Link
+      target={target}
+      className={`${linkClass} text-[1rem] font-title`}
+      to={url}
+    >
       {children}
     </Link>
   );

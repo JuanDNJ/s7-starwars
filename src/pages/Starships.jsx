@@ -24,8 +24,11 @@ export default function Starships() {
     <article className="py-2">
       {isLoading && <Loading />}
       {data && (
-        <article className="flex flex-col">
-          <Aside>StarShips {data.length}</Aside>
+        <article className="flex flex-col py-8 gap-8">
+          <Aside text="text-stone-400 text-xl">
+            StarShips{" "}
+            <strong className="text-yellow-400 text-sm">{data.length}</strong>
+          </Aside>
           <InfiniteScroll
             dataLength={data.length}
             next={handlerNextPage}

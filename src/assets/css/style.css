@@ -32,14 +32,12 @@
 }
 
 :root {
-  --color-text: rgb(255, 255, 205);
   font-family: "Oswald Regular", Inter, system-ui, Avenir, Helvetica, Arial,
     sans-serif;
   line-height: 1.5;
   font-weight: 400;
   font-size: 1em;
-  color-scheme: light dark;
-  color: var(--color-text);
+  color: rgb(131, 131, 129);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -54,7 +52,7 @@
 
 ::-webkit-scrollbar-thumb:vertical {
   height: 30px;
-  background-color: #fffb00;
+  background-color: #faf880;
 }
 body {
   @apply flex flex-col bg-black min-h-svh min-w-80;
@@ -68,7 +66,7 @@ body {
 .my__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-  @apply gap-4;
+
 }
 .grid__films,
 .grid__pilots {

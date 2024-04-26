@@ -4,13 +4,13 @@ export default function Logo({ title, subTitle }) {
 
   if (title)
     prevTitle = (
-      <strong className="font-title text-yellow-400 text-5xl md:text-7xl font-bold text-center">
+      <strong className="font-title text-yellow-300 text-5xl md:text-7xl font-bold text-center">
         {title}
       </strong>
     );
   if (subTitle)
     prevSubtitle = (
-      <strong className="font-title text-yellow-400 text-5xl md:text-7xl font-bold text-center">
+      <strong className="font-title text-yellow-300 text-5xl md:text-7xl font-bold text-center">
         {subTitle}
       </strong>
     );

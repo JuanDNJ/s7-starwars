@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <section className="flex flex-col justify-between p-2  md:mt-8 min-h-[60vh]">
       <article className="p-4 flex flex-col gap-4">
-        <h1 className="text-2xl md:text-3xl text-center font-title text-yellow-400">
+        <h1 className="text-2xl md:text-3xl text-center font-title text-yellow-200">
           Welcome to our Star Wars API information page!
         </h1>
         <div className="my__grid gap-4 text-lg text-center ">

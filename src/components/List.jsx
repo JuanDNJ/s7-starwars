@@ -5,7 +5,7 @@ export default function List({ payload, children }) {
     <section>
       {children}
       {payload && (
-        <ul className="list p-4">
+        <ul className="list p-4 gap-6">
           {payload.map((item, idx) => (
             <Ship key={idx} payload={item} />
           ))}

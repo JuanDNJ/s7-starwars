@@ -22,18 +22,20 @@ export default function Deatils() {
   }, [id]);
 
   return (
-    <section className="flex flex-col gap-4">
+    <section className="flex flex-col gap-4 mt-10">
       {error && "Error loading"}
       {isLoading ? (
         <Loading />
       ) : (
         <>
-          <Aside top>{data.name}</Aside>
-          <section className="order-0">
+          <Aside text="font-title text-yellow-300" top>
+            {data.name}
+          </Aside>
+          <section className="order-0 md:p-8">
             {<DetailShip ship={{ ...data, pictureId: id }} />}
           </section>
           <Aside bottom>
-            <Menu>
+            <Menu sticky="sticky top-96">
               <section className="col-span-4 md:col-span-6 flex gap-4">
                 {data.films && data.films.length > 0 && (
                   <GoToPage url={`films?id=${id}`}>Films</GoToPage>
@@ -46,7 +48,7 @@ export default function Deatils() {
           </Aside>
         </>
       )}
-      <section className="order-2 py-4">
+      <section className="order-2 md:p-6">
         <Outlet />
       </section>
     </section>
