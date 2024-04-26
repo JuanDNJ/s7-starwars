@@ -11,7 +11,7 @@ export default function UserBadget() {
     redirect("/");
   };
   return (
-    <div className="flex items-center gap-8">
+    <div className="flex items-center gap-4">
       <div
         className="flex flex-col justify-center items-center rounded-full w-8 h-8 border-[1px] border-stone-800  text-yellow-400  "
         title={`User ${displayName}`}
@@ -21,7 +21,7 @@ export default function UserBadget() {
         </strong>
       </div>
       <button type="button" onClick={handlerLogOut} title="LogOut">
-        <img src={logouIcon} alt="Sign Out Icon" />
+        <img src={logouIcon} width={28} alt="Sign Out Icon" />
       </button>
     </div>
   );

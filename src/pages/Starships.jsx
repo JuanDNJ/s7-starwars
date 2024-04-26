@@ -2,7 +2,7 @@ import List from "../components/List";
 import Aside from "../components/Aside";
 import { useAppDispatch, useAppSelector } from "../store";
 import Loading from "../components/Loading";
-
+import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchGetStarShipsPage } from "../store/tunks";
 import { STAR_WARS } from "../utils";
 
@@ -24,20 +24,17 @@ export default function Starships() {
     <article className="py-2">
       {isLoading && <Loading />}
       {data && (
-        <>
-          <article className="flex flex-col">
-            <Aside>StarShips {data.length}</Aside>
+        <article className="flex flex-col">
+          <Aside>StarShips {data.length}</Aside>
+          <InfiniteScroll
+            dataLength={data.length}
+            next={handlerNextPage}
+            hasMore={data.length === shipsAll.ships.count ? false : true}
+            loader={<Loading />}
+          >
             <List payload={data} />
-          </article>
-          <footer className="flex justify-end p-4">
-            <button
-              onClick={handlerNextPage}
-              className="text-yellow-400 hover:text-yellow-600"
-            >
-              View more
-            </button>
-          </footer>
-        </>
+          </InfiniteScroll>
+        </article>
       )}
     </article>
   );
