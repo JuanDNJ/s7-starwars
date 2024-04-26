@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../store";
 import ErrorFirebase from "../components/ErrorFirebase";
-import viewPasswordIcon from "../assets/images/svg/view_password.svg";
+import viewPasswordIcon from "../assets/images/svg/view.svg";
 export default function Login() {
   const { isLogin } = useAppSelector((state) => state.user);
-  const [viewPassword, setWiewPassword] = useState(false);
+  const [viewPassword, setWiewPassword] = useState(null);
   const [errorLogin, setErrorLogin] = useState(null);
   const redirect = useNavigate();
 
@@ -42,7 +42,7 @@ export default function Login() {
 
       <form
         onSubmit={handlerLogin}
-        className="flex flex-col items-center justify-center w-[50vh] h-[25vh]  gap-4  py-4 px-8 relative"
+        className="flex flex-col items-center justify-center w-[320px] md:max-w-[320px] h-[25vh]  gap-4  py-4 px-8 relative"
       >
         <ErrorFirebase error={errorLogin} />
 
@@ -76,12 +76,20 @@ export default function Login() {
           />
         </div>
 
-        <button
-          type="submit"
-          className="bg-green-200 rounded-md p-2  text-stone-800 w-full md:w-[50%]"
-        >
-          Login
-        </button>
+        <div className="flex justify-between w-full gap-4">
+          <button
+            type="submit"
+            className="bg-green-200 rounded-md p-2 text-stone-800 flex-1"
+          >
+            Login
+          </button>
+          <button
+            type="reset"
+            className="bg-red-200 rounded-md p-2 text-stone-800  flex-1"
+          >
+            Reset
+          </button>
+        </div>
       </form>
       <GoToPage url="/signup">Sign Up</GoToPage>
     </section>

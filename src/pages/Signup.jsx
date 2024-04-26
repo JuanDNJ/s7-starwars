@@ -40,7 +40,7 @@ export default function Signup() {
 
         <form
           onSubmit={handlerSubmit}
-          className="flex flex-col items-center justify-center w-[50vh] h-[25vh]  gap-4  py-4 px-8 relative"
+          className="flex flex-col items-center justify-center w-[320px] md:max-w-[320px]  gap-4  py-4 px-8 relative"
         >
           <ErrorFirebase error={errorAccount} />
           <input
@@ -71,12 +71,20 @@ export default function Signup() {
               required
             />
           </div>
-          <button
-            className="bg-green-200 rounded-md p-2  text-stone-800 w-full md:w-[50%]"
-            type="submit"
-          >
-            Sign Up
-          </button>
+          <div className="flex justify-between w-full gap-4">
+            <button
+              className="bg-green-200 rounded-md p-2  text-stone-800 flex-1"
+              type="submit"
+            >
+              Sign Up
+            </button>
+            <button
+              className="bg-red-200 rounded-md p-2  text-stone-800 flex-1"
+              type="reset"
+            >
+              Reset
+            </button>
+          </div>
         </form>
         <GoToPage url="/login">Login</GoToPage>
       </section>

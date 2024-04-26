@@ -45,19 +45,35 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #c2d2e400;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  height: 30px;
+  background-color: #fffb00;
+}
 body {
   @apply flex flex-col bg-black min-h-svh min-w-80;
+  background-image: url("/klipartz.com.png");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-attachment: fixed;
 }
 .list,
 .my__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
   @apply gap-4;
 }
 .grid__films,
 .grid__pilots {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
   @apply gap-4;
 }
 

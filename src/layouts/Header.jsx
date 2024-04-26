@@ -18,7 +18,7 @@ export default function Header() {
 
   return (
     <Fragment>
-      <Menu sticky="sticky top-0">
+      <Menu sticky="sticky top-0" bg="bg-black">
         <section className="flex-1 flex gap-4 ">
           <GoToPage _blank icon url={"https://www.facebook.com/starwars.es"}>
             <img
@@ -87,6 +87,7 @@ export default function Header() {
         justify="center"
         border="border border-stone-800 border-l-0 border-r-0"
         sticky="sticky top-11"
+        bg="bg-black"
       >
         <section className="flex justify-center gap-4">
           <GoToPage url="/home">Welcome</GoToPage>
