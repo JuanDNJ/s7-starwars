@@ -94,8 +94,14 @@ export default function Header() {
         bg="bg-black"
       >
         <section className="flex justify-center gap-4">
-          <GoToPage url="/home">Welcome</GoToPage>
-          {isLogin && <GoToPage url="/starships">StarShips</GoToPage>}
+          <GoToPage font="font-title" url="/home">
+            Welcome
+          </GoToPage>
+          {isLogin && (
+            <GoToPage font="font-title" url="/starships">
+              StarShips
+            </GoToPage>
+          )}
         </section>
       </Menu>
     </Fragment>

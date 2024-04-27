@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function GoToPage({ children, url, _blank, icon }) {
+export default function GoToPage({ children, url, _blank, icon, font }) {
   let target = "";
   let linkClass =
     "text-sm font-bold border-b-[1px] pb-1 border-b-transparent hover:border-b-yellow-500 hover:text-yellow-200";
@@ -14,7 +14,7 @@ export default function GoToPage({ children, url, _blank, icon }) {
   return (
     <Link
       target={target}
-      className={`${linkClass} text-[1rem] font-title`}
+      className={`${linkClass} text-[1rem] ${font}`}
       to={url}
     >
       {children}

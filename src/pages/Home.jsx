@@ -49,7 +49,7 @@ export default function Home() {
               <section className="col-span-12 flex flex-col md:flex-row items-center md:justify-end gap-4">
                 <GoToPage url={"/login"}>
                   <div className="flex items-center gap-2 ">
-                    <span className="text-blue-200 hover:text-yellow-400">
+                    <span className="text-yellow-200 hover:text-yellow-400">
                       You have an account?
                     </span>
                     <img
@@ -61,7 +61,7 @@ export default function Home() {
                 </GoToPage>
                 <GoToPage url={"/signup"}>
                   <div className="flex items-center gap-2">
-                    <span className="text-blue-200">
+                    <span className="text-yellow-200">
                       You do not have an account?
                     </span>
                     <img
