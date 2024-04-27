@@ -3,13 +3,15 @@ import { appAuth } from "../firebase";
 import GoToPage from "../components/GoToPage";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useAppSelector } from "../store";
+import { useAppSelector, useAppDispatch } from "../store";
 import ErrorFirebase from "../components/ErrorFirebase";
 import viewPasswordIcon from "../assets/images/svg/view.svg";
+import { setErrorCode } from "../store/slices/error";
 export default function Login() {
   const { isLogin } = useAppSelector((state) => state.user);
   const [viewPassword, setWiewPassword] = useState(null);
-  const [errorLogin, setErrorLogin] = useState(null);
+
+  const dispatch = useAppDispatch();
   const redirect = useNavigate();
 
   const handlerLogin = (event) => {
@@ -23,7 +25,7 @@ export default function Login() {
         if (payload) redirect("/");
       })
       .catch((err) => {
-        setErrorLogin({ ...err });
+        dispatch(setErrorCode(err.code));
       });
   };
 
@@ -35,6 +37,7 @@ export default function Login() {
     if (isLogin) {
       redirect("/");
     }
+    dispatch(setErrorCode(null));
   }, [isLogin]);
   return (
     <section className="flex flex-col gap-4 items-center justify-center min-h-[50vh]">
@@ -44,10 +47,9 @@ export default function Login() {
         onSubmit={handlerLogin}
         className="flex flex-col items-center justify-center w-[320px] md:max-w-[320px] h-[25vh]  gap-4  py-4 px-8 relative"
       >
-        <ErrorFirebase error={errorLogin} />
-
+        <ErrorFirebase />
         <input
-          className="p-2 rounded-md ring-1 ring-yellow-400 bg-black text-white  w-full"
+          className="p-2 rounded-md ring-1 ring-yellow-400 bg-black text-white w-full"
           name="email"
           type="email"
           placeholder="E-mail"

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchGetStarShipsPage } from "../tunks";
 
-export const starShips = createSlice({
+export const shipsSlice = createSlice({
   name: "ships",
   initialState: {
     isLoading: false,
@@ -36,5 +36,5 @@ export const starShips = createSlice({
   },
 });
 
-export const { setStarships } = starShips.actions;
-export default starShips.reducer;
+export const { setStarships } = shipsSlice.actions;
+export default shipsSlice.reducer;

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchGetStarShipById } from "../tunks";
 
-export const starShip = createSlice({
+export const shipSlice = createSlice({
   name: "starShip",
   initialState: {
     isLoading: false,
@@ -26,4 +26,4 @@ export const starShip = createSlice({
   },
 });
 
-export default starShip.reducer;
+export default shipSlice.reducer;

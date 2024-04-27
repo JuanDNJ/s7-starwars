@@ -3,25 +3,28 @@ import { appAuth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import GoToPage from "../components/GoToPage";
 import { useEffect, useState } from "react";
-import { useAppSelector } from "../store";
+import { useAppDispatch, useAppSelector } from "../store";
 import ErrorFirebase from "../components/ErrorFirebase";
 import viewPasswordIcon from "../assets/images/svg/view_password.svg";
+import { setErrorCode } from "../store/slices/error";
 export default function Signup() {
   const redirect = useNavigate();
   const [viewPassword, setWiewPassword] = useState(false);
-  const [errorAccount, setErrorAccount] = useState(null);
+
+  const dispatch = useAppDispatch();
   const { isLogin } = useAppSelector((state) => state.user);
+
   const handlerSubmit = (event) => {
     event.preventDefault();
-
     const email = event.target.email.value;
     const password = event.target.password.value;
+
     createUserWithEmailAndPassword(appAuth, email, password)
       .then((user) => {
         if (user) redirect("/");
       })
       .catch((err) => {
-        setErrorAccount({ ...err });
+        dispatch(setErrorCode(err.code));
       });
   };
   const handlerViewPassword = () => {
@@ -31,18 +34,18 @@ export default function Signup() {
     if (isLogin) {
       redirect("/");
     }
+    dispatch(setErrorCode(null));
   }, [isLogin]);
 
   return (
     !isLogin && (
       <section className="flex flex-col gap-4 items-center justify-center min-h-[50vh]">
         <h2 className="font-title text-yellow-400">Signup new user</h2>
-
         <form
           onSubmit={handlerSubmit}
           className="flex flex-col items-center justify-center w-[320px] md:max-w-[320px]  gap-4  py-4 px-8 relative"
         >
-          <ErrorFirebase error={errorAccount} />
+          <ErrorFirebase />
           <input
             className="p-2 rounded-md ring-1 ring-yellow-400 bg-black text-white  w-full"
             name="email"
