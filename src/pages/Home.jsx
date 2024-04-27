@@ -61,7 +61,7 @@ export default function Home() {
                 </GoToPage>
                 <GoToPage url={"/signup"}>
                   <div className="flex items-center gap-2">
-                    <span className="text-yellow-200">
+                    <span className="text-yellow-200 hover:text-yellow-400">
                       You do not have an account?
                     </span>
                     <img
