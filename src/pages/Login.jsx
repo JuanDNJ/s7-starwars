@@ -43,7 +43,7 @@ export default function Login() {
     !isLogin && (
       <section className="flex items-center justify-center min-h-[60vh] md:min-h-[512px]">
         <article className="flex flex-col items-center gap-4">
-          <h2 className="font-title text-yellow-400 ">
+          <h2 className="font-title text-yellow-200 ">
             Enter your user information
           </h2>
 
@@ -53,7 +53,7 @@ export default function Login() {
           >
             <ErrorFirebase />
             <input
-              className="p-2 rounded-md ring-1 ring-yellow-400 bg-black text-white w-full"
+              className="p-2 rounded-md ring-1 ring-yellow-200 bg-black text-white w-full"
               name="email"
               type="email"
               placeholder="E-mail"
@@ -73,7 +73,7 @@ export default function Login() {
                 />
               </label>
               <input
-                className="p-2 rounded-md ring-1 ring-yellow-400 bg-black text-white  w-full"
+                className="p-2 rounded-md ring-1 ring-yellow-200 bg-black text-white  w-full"
                 name="password"
                 id="password"
                 type={`${(viewPassword && "text") || "password"}`}
@@ -82,16 +82,16 @@ export default function Login() {
               />
             </div>
 
-            <div className="flex justify-between w-full gap-4">
+            <div className="flex gap-4 w-full mt-4">
               <button
                 type="submit"
-                className="bg-green-200 rounded-md p-2 text-stone-800 flex-1"
+                className="bg-green-500 rounded-md p-2 text-stone-50 flex-1 hover:bg-green-800"
               >
                 Login
               </button>
               <button
                 type="reset"
-                className="bg-red-200 rounded-md p-2 text-stone-800  flex-1"
+                className="bg-red-500 rounded-md p-2 text-stone-50 flex-1 hover:bg-red-800"
               >
                 Reset
               </button>

@@ -41,14 +41,14 @@ export default function Signup() {
     !isLogin && (
       <section className="flex flex-col gap-4 items-center justify-center min-h-[60vh] md:min-h-[512px]">
         <article className="flex flex-col items-center gap-4">
-          <h2 className="font-title text-yellow-400 ">Create new account</h2>
+          <h2 className="font-title text-yellow-200 ">Create new account</h2>
           <form
             onSubmit={handlerSubmit}
             className="flex flex-col items-center justify-center w-[320px] md:max-w-[320px] h-[25vh] gap-4 py-4 px-8 relative"
           >
             <ErrorFirebase />
             <input
-              className="p-2 rounded-md ring-1 ring-yellow-400 bg-black text-white  w-full"
+              className="p-2 rounded-md ring-1 ring-yellow-200 bg-black text-white  w-full"
               name="email"
               type="email"
               required
@@ -68,22 +68,22 @@ export default function Signup() {
                 />
               </label>
               <input
-                className="p-2 rounded-md ring-1 ring-yellow-400 bg-black text-white  w-full"
+                className="p-2 rounded-md ring-1 ring-yellow-200 bg-black text-white  w-full"
                 name="password"
                 type={`${(viewPassword && "text") || "password"}`}
                 placeholder="Password"
                 required
               />
             </div>
-            <div className="flex justify-between w-full gap-4">
+            <div className="flex gap-4 mt-4 w-full">
               <button
-                className="bg-green-200 rounded-md p-2  text-stone-800 flex-1"
+                className="bg-green-500 rounded-md p-2 text-stone-50 flex-1 hover:bg-green-800"
                 type="submit"
               >
                 Sign Up
               </button>
               <button
-                className="bg-red-200 rounded-md p-2  text-stone-800 flex-1"
+                className="bg-red-500 rounded-md p-2 text-stone-50 flex-1 hover:bg-red-800"
                 type="reset"
               >
                 Reset
