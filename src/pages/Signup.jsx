@@ -39,8 +39,8 @@ export default function Signup() {
 
   return (
     !isLogin && (
-      <section className="flex flex-col gap-4 items-center justify-center min-h-[50vh]">
-        <article className="text-center">
+      <section className="flex flex-col gap-4 items-center justify-center min-h-[60vh] md:min-h-[512px]">
+        <article className="flex flex-col items-center gap-4">
           <h2 className="font-title text-yellow-400 ">Create new account</h2>
           <form
             onSubmit={handlerSubmit}
