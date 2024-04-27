@@ -41,7 +41,9 @@ export default function Login() {
   }, [isLogin]);
   return (
     <section className="flex flex-col gap-4 items-center justify-center min-h-[50vh]">
-      <h2 className="font-title text-yellow-400">Login user</h2>
+      <h2 className="font-title text-yellow-400">
+        Enter your user information
+      </h2>
 
       <form
         onSubmit={handlerLogin}
@@ -93,7 +95,7 @@ export default function Login() {
           </button>
         </div>
       </form>
-      <GoToPage url="/signup">Sign Up</GoToPage>
+      <GoToPage url="/signup"> You do not have an account?</GoToPage>
     </section>
   );
 }

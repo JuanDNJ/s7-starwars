@@ -40,7 +40,7 @@ export default function Signup() {
   return (
     !isLogin && (
       <section className="flex flex-col gap-4 items-center justify-center min-h-[50vh]">
-        <h2 className="font-title text-yellow-400">Signup new user</h2>
+        <h2 className="font-title text-yellow-400">Create new account</h2>
         <form
           onSubmit={handlerSubmit}
           className="flex flex-col items-center justify-center w-[320px] md:max-w-[320px]  gap-4  py-4 px-8 relative"
@@ -89,7 +89,7 @@ export default function Signup() {
             </button>
           </div>
         </form>
-        <GoToPage url="/login">Login</GoToPage>
+        <GoToPage url="/login">You have an account?</GoToPage>
       </section>
     )
   );
