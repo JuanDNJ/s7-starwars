@@ -28,7 +28,10 @@ export default function Deatils() {
         <Loading />
       ) : (
         <>
-          <Aside text="font-title text-yellow-300" top>
+          <Aside
+            text="font-title text-yellow-200 text-[.8rem] first-letter:text-lg "
+            top
+          >
             {data.name}
           </Aside>
           <section className="order-0 md:p-8">

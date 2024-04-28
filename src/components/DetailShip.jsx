@@ -7,7 +7,10 @@ export default function DetailShip({ ship }) {
       <div className="flex-1">
         <DetailPicture id={ship && ship.pictureId} />
       </div>
-      <ul className="flex-1 flex flex-col pl-4">
+      <ul className="flex-1 flex flex-col p-4">
+        <h2 className="font-title text-yellow-200 border-b-2 border-yellow-700 pb-1 mb-2 first-letter:text-2xl pl-1">
+          {ship.name}
+        </h2>
         <DetailShipItem left={"Model"} right={ship.model} />
         <DetailShipItem left={"Starship class"} right={ship.starship_class} />
         <DetailShipItem left={"Cost in credits"} right={ship.cost_in_credits} />
