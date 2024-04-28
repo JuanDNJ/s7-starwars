@@ -5,7 +5,7 @@ export default function DetailShip({ ship }) {
   return (
     <article className="flex flex-col md:flex-row gap-4">
       <div className="flex-1">
-        <DetailPicture id={ship && ship.pictureId} />
+        <DetailPicture id={ship && ship.id} />
       </div>
       <ul className="flex-1 flex flex-col p-4">
         <h2 className="font-title text-yellow-200 border-b-2 border-yellow-700 pb-1 mb-2 first-letter:text-2xl pl-1">

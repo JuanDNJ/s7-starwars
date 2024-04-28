@@ -10,6 +10,8 @@ import {
   LazySignup,
   LazyLogin,
   MainLayout,
+  LazyFilm,
+  LazyPilot,
 } from "./lazy";
 
 import { useAppDispatch } from "../store";
@@ -38,6 +40,7 @@ export default function AppRoutes() {
           >
             <Route index element={<LazyHome />} />
             <Route path="/home" element={<LazyHome />} />
+
             <Route element={<ProtectedRoutes />}>
               <Route path="/starships" element={<LazyShips />} />
               <Route index element={<LazyShips />} />
@@ -46,7 +49,10 @@ export default function AppRoutes() {
                 <Route path="films" element={<LazyFilms />}></Route>
                 <Route path="*" element={<Lazy404 />} />
               </Route>
+              <Route path="/detail/film" element={<LazyFilm />}></Route>
+              <Route path="/detail/pilot" element={<LazyPilot />}></Route>
             </Route>
+
             <Route path="/login" element={<LazyLogin />} />
             <Route path="/signup" element={<LazySignup />} />
             <Route path="*" element={<Lazy404 />} />

@@ -1,5 +1,22 @@
 export const STAR_WARS = "https://swapi.py4e.com/api/";
 export const VISUAL_GUIDE_URL = "https://starwars-visualguide.com/assets/img/";
+export const RESOURCES_STAR_WARS = [
+  "root",
+  "people",
+  "films",
+  "starships",
+  "vehicles",
+  "species",
+  "planets",
+];
+export const RESOURCES_VISULA_GUIDE = [
+  "character",
+  "films",
+  "species",
+  "starships",
+  "vehicles",
+  "planets",
+];
 export const newUser = {
   email: "",
   displayName: "",
@@ -17,7 +34,23 @@ export async function getPicture(resource) {
     console.error(error);
   }
 }
-
+export const getPictureByUrl = (url, resource) => {
+  let newUrl = "";
+  if (url.includes(STAR_WARS)) {
+    //   console.log(movie.url.includes(STAR_WARS));
+    if (resource === "people") {
+      newUrl = url
+        .slice(url.indexOf(resource), url.lastIndexOf("/"))
+        .concat(".jpg")
+        .replace("people", "characters");
+    } else {
+      newUrl = url
+        .slice(url.indexOf(resource), url.lastIndexOf("/"))
+        .concat(".jpg");
+    }
+  }
+  return VISUAL_GUIDE_URL.concat(newUrl);
+};
 export function createUrlDetail(payload) {
   const firstIndex = payload.indexOf("starship");
   const lastIndex = payload.lastIndexOf("/");
@@ -63,4 +96,17 @@ export const getShip = async (id, search, callBack) => {
   } catch (error) {
     console.error(error);
   }
+};
+
+export const getIdByUrl = (url) => {
+  // https://swapi.py4e.com/api/films/2/
+  let ismatch = -1;
+  for (let i = 0; i < RESOURCES_STAR_WARS.length; i++) {
+    if (url.includes(STAR_WARS.concat(RESOURCES_STAR_WARS[i]))) {
+      ismatch = url
+        .replace(STAR_WARS.concat(RESOURCES_STAR_WARS[i]) + "/", "")
+        .replace("/", "");
+    }
+  }
+  return ismatch;
 };

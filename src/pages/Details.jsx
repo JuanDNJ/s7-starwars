@@ -35,7 +35,7 @@ export default function Deatils() {
             {data.name}
           </Aside>
           <section className="order-0 md:p-8">
-            {<DetailShip ship={{ ...data, pictureId: id }} />}
+            {<DetailShip ship={{ ...data, id }} />}
           </section>
           <Aside bottom>
             <Menu sticky="sticky top-96">
