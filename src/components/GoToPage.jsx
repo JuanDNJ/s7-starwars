@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function GoToPage({ children, url, _blank, icon, font }) {
+export default function GoToPage({ children, url, _blank, icon, font, title }) {
   let target = "";
   let linkClass =
     "font-bold border-b-[1px] pb-1 border-b-transparent hover:border-b-yellow-500 hover:text-yellow-200";
@@ -11,6 +11,9 @@ export default function GoToPage({ children, url, _blank, icon, font }) {
 
   if (_blank) target = "_blank";
 
+  if (title) {
+    linkClass = "flex flex-col hover:border-b-transparent";
+  }
   return (
     <Link
       target={target}
