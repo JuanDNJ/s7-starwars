@@ -48,6 +48,8 @@ export default function Login() {
           </h2>
 
           <form
+            name="login"
+            id="form__login"
             onSubmit={handlerLogin}
             className="flex flex-col items-center justify-center w-[320px] md:max-w-[320px] h-[25vh] gap-4 py-4 px-8 relative"
           >

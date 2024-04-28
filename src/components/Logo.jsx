@@ -18,11 +18,12 @@ export default function Logo({ title, subTitle }) {
   return (
     <section className="flex items-center justify-center p-4">
       {title && !subTitle && <div>{prevTitle}</div>}
+
       {title && subTitle && (
-        <div className="flex flex-col">
+        <h1 className="flex flex-col">
           {prevTitle}
           {prevSubtitle}
-        </div>
+        </h1>
       )}
     </section>
   );
