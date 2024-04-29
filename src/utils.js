@@ -97,7 +97,42 @@ export const getShip = async (id, search, callBack) => {
     console.error(error);
   }
 };
+export const getFilm = async (id, callback) => {
+  const film = await fetch(`https://swapi.py4e.com/api/films/${id}`);
+  const result = await film.json();
+  callback({ ...result, picture: getPictureByUrl(result.url, "film") });
+};
 
+export const getCharcatersByFilm = async (idFilm, callBack) => {
+  const request = await fetch(STAR_WARS + "films/" + idFilm);
+  if (request.ok) {
+    const result = await request.json();
+    const allCharacters = result.characters.map(async (url) => {
+      const pilotResponse = await fetch(url);
+      if (pilotResponse.ok) {
+        return pilotResponse.json();
+      }
+    });
+    const allPromises = await Promise.all(allCharacters);
+
+    callBack(allPromises);
+  }
+};
+export const getSpeciesByFilm = async (id, callBack) => {
+  const requestFilm = await fetch(STAR_WARS + "films/" + id);
+  if (requestFilm.ok) {
+    const resultFilm = await requestFilm.json();
+    const requestAllSpecies = await resultFilm.species.map(async (specie) => {
+      const resultAllSpecies = await fetch(specie);
+      if (resultAllSpecies.ok) {
+        return await resultAllSpecies.json();
+      }
+    });
+    const allPromises = await Promise.all(requestAllSpecies);
+
+    callBack(allPromises);
+  }
+};
 export const getIdByUrl = (url) => {
   // https://swapi.py4e.com/api/films/2/
   let ismatch = -1;
