@@ -40,7 +40,6 @@ export default function AppRoutes() {
           >
             <Route index element={<LazyHome />} />
             <Route path="/home" element={<LazyHome />} />
-
             <Route element={<ProtectedRoutes />}>
               <Route path="/starships" element={<LazyShips />} />
               <Route index element={<LazyShips />} />

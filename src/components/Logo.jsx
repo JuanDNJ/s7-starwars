@@ -1,4 +1,4 @@
-import GoToPage from "./GoToPage";
+
 
 export default function Logo({ title, subTitle }) {
   let prevTitle = "";
@@ -23,10 +23,8 @@ export default function Logo({ title, subTitle }) {
 
       {title && subTitle && (
         <h1 className="flex flex-col text-white hover:text-yellow-500 transition-colors duration-300">
-          <GoToPage url="/" title>
-            {prevTitle}
-            {prevSubtitle}
-          </GoToPage>
+          {prevTitle}
+          {prevSubtitle}
         </h1>
       )}
     </section>
