@@ -16,15 +16,15 @@ Per sort, aquesta API de Star Wars, ja està creada i ens servirà per obtenir e
 
 A continuació, et facilitem diferents enllaços i documentació per implementar correctament l'API:
 
-SWAPI- The Star Wars API-documentation [SWAPI- The Star Wars API-documentation](https://swapi.dev/documentation)
+[SWAPI- The Star Wars API-documentation](https://swapi.dev/documentation)
 
 -Eina per provar crides API (un detall per part de swapi.dev):
 
-[-> SWAPI- The Star Wars API]("https://swapi.dev/")
+[-> SWAPI- The Star Wars API](https://swapi.dev/)
 
 En cas que no funcioni swapi.dev (a vegades les API gratuïtes poden no estar disponibles), utilitzar:
 
-[-> SWAPI- The Star Wars API]("https://swapi.py4e.com/")
+[-> SWAPI- The Star Wars API](https://swapi.py4e.com/)
 
 ## Endpoints útils
 
@@ -33,21 +33,21 @@ Les crides API que t'interessen són les següents:
 - Obtenció del llistat de naus:
 
 
-[-> swapi.dev]("https://swapi.dev/api/starships")
+[-> swapi.dev](https://swapi.dev/api/starships)
 
 Important: com s'ha esmentat anteriorment, si no funciona utilitzar:
 
-[-> swapi.py4e]("https://swapi.py4e.com/api/starships/")
+[-> swapi.py4e](https://swapi.py4e.com/api/starships/)
 
 - Obtenció del llistat de naus amb paginació (*):
 
-[-> swapi.dev page=1]("https://swapi.dev/api/starships/?page=1")
+[-> swapi.dev page=1](https://swapi.dev/api/starships/?page=1)
 
 Modificant el número de pàgina aconseguiràs més naus.
 
 - Pots utilitzar l'API "starwars-visualguide.com" per carregar les imatges de les naus. Un exemple de nau és:
 
-[-> starwars-visualguide]("https://starwars-visualguide.com/assets/img/starships/5.jpg")
+[-> starwars-visualguide](https://starwars-visualguide.com/assets/img/starships/5.jpg)
 
 Veuràs que els ids de "swapi.dev" i "starwars-visualguide.com" coincideixen.
 
@@ -63,8 +63,8 @@ A moltes API pots indicar-les la pàgina que vols i la quantitat d'ítems per p�
 
 - És molt recomanable utilitzar Redux en aquest sprint, ja que és molt sol·licitat en les entrevistes de treball. Aquest recurs et pot ajudar a acabar d'entendre-ho:
 
-[-> Link Redux-Toolkit]("https://medium.com/@diego.coder/implementando-redux-en-react-js-redux-toolkit-86b82219584a")
+[-> Link Redux-Toolkit](https://medium.com/@diego.coder/implementando-redux-en-react-js-redux-toolkit-86b82219584a)
 
 - Per aquesta pràctica ens agrada sempre recomanar una bona estructura d’un projecte de React:
 
-[-> Link estructura projecte React]("https://github.com/alan2207/bulletproof-react/blob/master/docs/project-structure.md")
+[-> Link estructura projecte React](https://github.com/alan2207/bulletproof-react/blob/master/docs/project-structure.md)
