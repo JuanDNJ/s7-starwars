@@ -68,3 +68,19 @@ A moltes API pots indicar-les la pàgina que vols i la quantitat d'ítems per p�
 - Per aquesta pràctica ens agrada sempre recomanar una bona estructura d’un projecte de React:
 
 [-> Link estructura projecte React](https://github.com/alan2207/bulletproof-react/blob/master/docs/project-structure.md)
+
+## Nivell 1
+
+### - Exercici 1
+
+Per començar, el primer que has d'implementar és la pantalla principal on es visualitzi tot el llistat de naus.
+
+Un cop implementat en el servidor, veuràs que aquest et retorna moltes dades interessants de cada nau, però en la pantalla principal només ensenyarem les dades més importants, per evitar una saturació de la informació.
+
+Dades necessàries de cada producte (nau) en el llistat:
+
+- Nom de la nau.
+
+- Model.- Model.
+
+![Exercici 1](/images/Imatge1S7.png)
