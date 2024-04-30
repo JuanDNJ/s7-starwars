@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { getCharcatersByFilm, getFilm, getSpeciesByFilm } from "../utils";
+import { getResourceByFilm, getFilm } from "../utils";
 import GridList from "../components/GridList";
 import viewIcon from "../assets/images/svg/view.svg";
 
@@ -10,7 +10,9 @@ export default function DetailFilm() {
   const [film, setFilm] = useState(null);
   const [characterFilm, setCharacterFilm] = useState([]);
   const [speciesFilm, setSpeciesFilm] = useState([]);
-
+  const [planetsFilm, setPlanetsFilm] = useState([]);
+  const [vehiclesFilm, setVehiclesFilm] = useState([]);
+  const [starshipsFilm, setStarshipsFilm] = useState([]);
   const [view, setView] = useState({
     SPECIES: false,
     CHARACTERS: false,
@@ -60,12 +62,24 @@ export default function DetailFilm() {
     getFilm(id, (film) => {
       setFilm(() => film);
     });
-    getCharcatersByFilm(id, (characters) => {
+    // TODO: Refactorizar esta sección
+    getResourceByFilm(id, "starships", (starships) => {
+      setStarshipsFilm(() => starships);
+    });
+    getResourceByFilm(id, "characters", (characters) => {
       setCharacterFilm(() => characters);
     });
-    getSpeciesByFilm(id, (species) => {
+    getResourceByFilm(id, "species", (species) => {
       setSpeciesFilm(() => species);
     });
+    getResourceByFilm(id, "planets", (planets) => {
+      setPlanetsFilm(() => planets);
+    });
+    getResourceByFilm(id, "vehicles", (vehicles) => {
+      setVehiclesFilm(() => vehicles);
+    });
+    // TODO:
+    console.log(film);
   }, [id]);
 
   return (

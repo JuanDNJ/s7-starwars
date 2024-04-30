@@ -9,6 +9,7 @@ export const RESOURCES_STAR_WARS = [
   "species",
   "planets",
 ];
+
 export const RESOURCES_VISULA_GUIDE = [
   "character",
   "films",
@@ -17,6 +18,7 @@ export const RESOURCES_VISULA_GUIDE = [
   "vehicles",
   "planets",
 ];
+
 export const newUser = {
   email: "",
   displayName: "",
@@ -34,6 +36,7 @@ export async function getPicture(resource) {
     console.error(error);
   }
 }
+
 export const getPictureByUrl = (url, resource) => {
   let newUrl = "";
   if (url.includes(STAR_WARS)) {
@@ -51,6 +54,7 @@ export const getPictureByUrl = (url, resource) => {
   }
   return VISUAL_GUIDE_URL.concat(newUrl);
 };
+
 export function createUrlDetail(payload) {
   const firstIndex = payload.indexOf("starship");
   const lastIndex = payload.lastIndexOf("/");
@@ -103,36 +107,64 @@ export const getFilm = async (id, callback) => {
   callback({ ...result, picture: getPictureByUrl(result.url, "film") });
 };
 
-export const getCharcatersByFilm = async (idFilm, callBack) => {
-  const request = await fetch(STAR_WARS + "films/" + idFilm);
-  if (request.ok) {
-    const result = await request.json();
-    const allCharacters = result.characters.map(async (url) => {
-      const pilotResponse = await fetch(url);
-      if (pilotResponse.ok) {
-        return pilotResponse.json();
-      }
-    });
-    const allPromises = await Promise.all(allCharacters);
+export const getResourceByFilm = async (idFilm, resource, callBack) => {
+  try {
+    const request = await fetch(STAR_WARS + "films/" + idFilm);
 
-    callBack(allPromises);
+    if (request.ok) {
+      const result = await request.json();
+      let allResources = [];
+      // GET ALL FILES BY RESOURCE
+
+      if (resource === "starships") {
+        allResources = result.starships.map(async (url) => {
+          const pilotResponse = await fetch(url);
+          if (pilotResponse.ok) {
+            return pilotResponse.json();
+          }
+        });
+      }
+      if (resource === "characters") {
+        allResources = result.characters.map(async (url) => {
+          const pilotResponse = await fetch(url);
+          if (pilotResponse.ok) {
+            return pilotResponse.json();
+          }
+        });
+      }
+      if (resource === "species") {
+        allResources = result.species.map(async (url) => {
+          const pilotResponse = await fetch(url);
+          if (pilotResponse.ok) {
+            return pilotResponse.json();
+          }
+        });
+      }
+      if (resource === "planets") {
+        allResources = result.planets.map(async (url) => {
+          const pilotResponse = await fetch(url);
+          if (pilotResponse.ok) {
+            return pilotResponse.json();
+          }
+        });
+      }
+      if (resource === "vehicles") {
+        allResources = result.vehicles.map(async (url) => {
+          const pilotResponse = await fetch(url);
+          if (pilotResponse.ok) {
+            return pilotResponse.json();
+          }
+        });
+      }
+      const allPromises = await Promise.all(allResources);
+      callBack(allPromises);
+    }
+    throw new Error("Invalid resource");
+  } catch (error) {
+    console.error(error);
   }
 };
-export const getSpeciesByFilm = async (id, callBack) => {
-  const requestFilm = await fetch(STAR_WARS + "films/" + id);
-  if (requestFilm.ok) {
-    const resultFilm = await requestFilm.json();
-    const requestAllSpecies = await resultFilm.species.map(async (specie) => {
-      const resultAllSpecies = await fetch(specie);
-      if (resultAllSpecies.ok) {
-        return await resultAllSpecies.json();
-      }
-    });
-    const allPromises = await Promise.all(requestAllSpecies);
 
-    callBack(allPromises);
-  }
-};
 export const getIdByUrl = (url) => {
   // https://swapi.py4e.com/api/films/2/
   let ismatch = -1;
