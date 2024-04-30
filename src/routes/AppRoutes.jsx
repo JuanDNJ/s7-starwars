@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Fragment, Suspense } from "react";
+import { Suspense } from "react";
 import {
   LazyHome,
   LazyShips,
@@ -31,9 +31,7 @@ export default function AppRoutes() {
             path="/"
             element={
               <MainLayout>
-                <Fragment>
-                  <Header />
-                </Fragment>
+                <Header />
               </MainLayout>
             }
             loader={dispatch(fetchGetStarShipsPage(1))}

@@ -47,24 +47,14 @@ export default function DetailFilm() {
             </div>
           </article>
         </section>
-        <article className="md:grid md:grid-cols-2 gap-2">
-          <div>
+        <article className="grid grid-cols-2 gap-2">
+          <div className={`grid overflow-hidden h-56`}>
             <h3 className="">Characters {characterFilm.length} </h3>
-            <GridList
-              list={characterFilm}
-              cols="3"
-              height="56"
-              typePicture="characters"
-            />
+            <GridList list={characterFilm} cols={3} typePicture="characters" />
           </div>
-          <div>
+          <div className={`grid overflow-hidden h-56`}>
             <h3 className="">Species {speciesFilm.length} </h3>
-            <GridList
-              list={speciesFilm}
-              cols="3"
-              height="56"
-              typePicture="species"
-            />
+            <GridList list={speciesFilm} cols={3} typePicture="species" />
           </div>
           <div className=" bg-orange-500">
             <small>StarShips: {film.starships.length}</small>
