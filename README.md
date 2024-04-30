@@ -136,7 +136,7 @@ Requisits:
 
 - Un cop registra’t l’usuari/ària ha d'aparèixer logat.
 
-Nota:  És molt recomanable usar https://reqres.in/, ja que es tracta d'una API amb usuaris fake, així practicaràs el login i registre com si es tractés d'una web real.
+Nota:  És molt recomanable usar [reqres](https://reqres.in/), ja que es tracta d'una API amb usuaris fake, així practicaràs el login i registre com si es tractés d'una web real.
 
 A més, convé que aprenguis a saber llegir documentació de Swagger, ja que estaherramienta s'usa en molts projectes
 
