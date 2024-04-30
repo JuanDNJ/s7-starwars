@@ -32,7 +32,6 @@ Les crides API que t'interessen són les següents:
 
 - Obtenció del llistat de naus:
 
-
 [-> swapi.dev](https://swapi.dev/api/starships)
 
 Important: com s'ha esmentat anteriorment, si no funciona utilitzar:
@@ -127,13 +126,14 @@ En el cas de no haver implementat encara el component, hauràs de crear la barra
 
 ### - Exercici 6
 
-Ja gairebé has acabat la base del projecte! L'única cosa que et falta és la creació d’un Backend fake amb JSON server auth per gestionar usuaris/àries. 
+Ja gairebé has acabat la base del projecte! L'única cosa que et falta és la creació d’un Backend fake amb JSON server auth per gestionar usuaris/àries.
 
-Has d'implementar una pantalla de Login i Registre, fent servir una API senzilla (JSON-SERVER-AUTH o https://reqres.in/).
+Has d'implementar una pantalla de Login i Registre, fent servir una API senzilla (JSON-SERVER-AUTH o [https://reqres.in/](https://reqres.in/) ).
 
 Requisits:
 
 - Un usuari/ària no es pot registrar amb el mateix email.
+
 - Un cop registra’t l’usuari/ària ha d'aparèixer logat.
 
 Nota:  És molt recomanable usar https://reqres.in/, ja que es tracta d'una API amb usuaris fake, així practicaràs el login i registre com si es tractés d'una web real.
@@ -154,7 +154,7 @@ Exemple JSON-server-auth
 
 ### - Exercici 7
 
-El llistat de naus només pot ser visible per usuaris/es registrats, has de protegir les rutes. 
+El llistat de naus només pot ser visible per usuaris/es registrats, has de protegir les rutes.
 
 Modificarem lleugerament l’aplicació, perquè en el cas que un usuari/ària no registrat vulgui accedir a un contingut protegit per un guard, el sistema li porti al “login”. Un cop fet el login correctament, s’ha de redirigir automàticament a la pàgina on volia accedir inicialment.
 
