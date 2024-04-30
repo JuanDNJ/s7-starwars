@@ -1,9 +1,9 @@
-
+import { useNavigate } from "react-router";
 
 export default function Logo({ title, subTitle }) {
   let prevTitle = "";
   let prevSubtitle = "";
-
+  const navigate = useNavigate();
   if (title)
     prevTitle = (
       <strong className="font-title  text-5xl md:text-7xl font-bold text-center">
@@ -22,7 +22,10 @@ export default function Logo({ title, subTitle }) {
       {title && !subTitle && <div>{prevTitle}</div>}
 
       {title && subTitle && (
-        <h1 className="flex flex-col text-white hover:text-yellow-500 transition-colors duration-300">
+        <h1
+          onClick={() => navigate("/")}
+          className="flex flex-col text-white hover:text-yellow-500 transition-colors duration-300 cursor-pointer"
+        >
           {prevTitle}
           {prevSubtitle}
         </h1>

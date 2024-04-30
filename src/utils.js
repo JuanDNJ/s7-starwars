@@ -158,8 +158,9 @@ export const getResourceByFilm = async (idFilm, resource, callBack) => {
       }
       const allPromises = await Promise.all(allResources);
       callBack(allPromises);
+    } else {
+      throw new Error("Invalid resource");
     }
-    throw new Error("Invalid resource");
   } catch (error) {
     console.error(error);
   }

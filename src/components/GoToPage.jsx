@@ -9,12 +9,12 @@ export default function GoToPage({ children, url, _blank, icon, font, title }) {
   if (_blank) target = "_blank";
 
   if (title) {
-    linkClass = "flex flex-col ";
+    linkClass = "flex flex-col focus:border-b-transparent";
   }
   return (
     <NavLink
       target={target}
-      className={`${linkClass} text-[1rem] ${font} hover:text-yellow-500`}
+      className={`${linkClass}  text-[1rem] ${font} hover:text-yellow-500`}
       to={url}
     >
       {children}

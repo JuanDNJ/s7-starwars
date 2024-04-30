@@ -54,6 +54,13 @@
   height: 30px;
   background-color: #faf880;
 }
+.grid__list::-webkit-scrollbar {
+  width: 10px;
+}
+.grid__list::-webkit-scrollbar-thumb:vertical {
+  background-color: #d3f8ef;
+  border-radius: 5px;
+}
 body {
   display: grid;
   background-color: #010101fc;

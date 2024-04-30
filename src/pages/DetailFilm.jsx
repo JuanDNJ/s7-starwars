@@ -54,6 +54,14 @@ export default function DetailFilm() {
           };
         });
         break;
+      case "planets":
+        setView((prev) => {
+          return {
+            ...prev,
+            PLANETS: !prev.PLANETS,
+          };
+        });
+        break;
       default:
         break;
     }
@@ -109,68 +117,137 @@ export default function DetailFilm() {
             </div>
             <aside className="col-span-4">
               <button
-                className="inline-flex items-center justify-center p-2 gap-2"
+                className={`group inline-flex items-center justify-center p-2 gap-2 hover:text-yellow-300 ${
+                  characterFilm.length > 0 &&
+                  view.CHARACTERS &&
+                  "text-yellow-300"
+                }`}
                 onClick={() => handlerView("characters")}
               >
                 <strong>Characters</strong>{" "}
-                <img src={viewIcon} alt="View Icon" />
+                <img
+                  src={viewIcon}
+                  className="group-hover:scale-75"
+                  alt="View Icon"
+                />
               </button>
               <button
-                className="inline-flex items-center justify-center p-2 gap-2"
+                className={`group inline-flex items-center justify-center p-2 gap-2 hover:text-yellow-300 ${
+                  speciesFilm.length > 0 && view.SPECIES && "text-yellow-300"
+                }`}
                 onClick={() => handlerView("species")}
               >
-                <strong>Species</strong> <img src={viewIcon} alt="View Icon" />
+                <strong>Species</strong>{" "}
+                <img
+                  src={viewIcon}
+                  className="group-hover:scale-75"
+                  alt="View Icon"
+                />
               </button>
               <button
-                className="inline-flex items-center justify-center p-2 gap-2"
+                className={`group inline-flex items-center justify-center p-2 gap-2 hover:text-yellow-300 ${
+                  vehiclesFilm.length > 0 && view.VEHICLES && "text-yellow-300"
+                }`}
                 onClick={() => handlerView("vehicles")}
               >
-                <strong>Vehicles</strong> <img src={viewIcon} alt="View Icon" />
+                <strong>Vehicles</strong>{" "}
+                <img
+                  src={viewIcon}
+                  className="group-hover:scale-75"
+                  alt="View Icon"
+                />
               </button>
               <button
-                className="inline-flex items-center justify-center p-2 gap-2"
+                className={`group inline-flex items-center justify-center p-2 gap-2 hover:text-yellow-300 ${
+                  starshipsFilm.length > 0 &&
+                  view.STARSHIPS &&
+                  "text-yellow-300"
+                }`}
                 onClick={() => handlerView("starships")}
               >
                 <strong>StarShips</strong>{" "}
-                <img src={viewIcon} alt="View Icon" />
+                <img
+                  src={viewIcon}
+                  className="group-hover:scale-75"
+                  alt="View Icon"
+                />
+              </button>
+              <button
+                className={`group inline-flex items-center justify-center p-2 gap-2 hover:text-yellow-300 ${
+                  planetsFilm.length > 0 && view.PLANETS && "text-yellow-300"
+                }`}
+                onClick={() => handlerView("planets")}
+              >
+                <strong>Planets</strong>{" "}
+                <img
+                  src={viewIcon}
+                  className="group-hover:scale-75"
+                  alt="View Icon"
+                />
               </button>
             </aside>
           </article>
         </section>
         <article className="grid md:grid-cols-2 gap-2">
-          {view.CHARACTERS && (
-            <div className={`flex flex-col overflow-hidden h-72 md:h-56`}>
-              <h3 className="flex gap-4 py-4">
+          {characterFilm.length > 0 && view.CHARACTERS && (
+            <div className={`flex flex-col overflow-hidden h-[286px]`}>
+              <h3 className="flex gap-4 py-4 font-title text-yellow-200">
                 <strong>Characters {characterFilm.length} </strong>
               </h3>
 
               <GridList
                 list={characterFilm}
-                cols="grid-cols-2 md:grid-cols-4"
+                cols="grid-cols-2 md:grid-cols-3"
                 typePicture="characters"
               />
             </div>
           )}
-          {view.SPECIES && (
-            <div className={`flex flex-col overflow-hidden h-72 md:h-56`}>
-              <h3 className="flex gap-4 py-4">
+          {speciesFilm.length > 0 && view.SPECIES && (
+            <div className={`flex flex-col overflow-hidden h-[286px]`}>
+              <h3 className="flex gap-4 py-4 font-title text-yellow-200">
                 <strong>Species {speciesFilm.length} </strong>
               </h3>
               <GridList
                 list={speciesFilm}
-                cols="grid-cols-2 md:grid-cols-4"
+                cols="grid-cols-2 md:grid-cols-3"
                 typePicture="species"
               />
             </div>
           )}
-          {view.STARSHIPS && (
-            <div className=" bg-orange-500">
-              <small>StarShips: {film.starships.length}</small>
+          {starshipsFilm.length > 0 && view.STARSHIPS && (
+            <div className="flex flex-col overflow-hidden h-[286px]">
+              <h3 className="flex gap-4 py-4 font-title text-yellow-200">
+                <strong>StarShips {starshipsFilm.length} </strong>
+              </h3>
+              <GridList
+                list={starshipsFilm}
+                cols="grid-cols-2 md:grid-cols-3"
+                typePicture="starships"
+              />
             </div>
           )}
-          {view.VEHICLES && (
-            <div className=" bg-pink-500">
-              <small>StarShips: {film.planets.length}</small>
+          {vehiclesFilm.length > 0 && view.VEHICLES && (
+            <div className="flex flex-col overflow-hidden h-[286px]">
+              <h3 className="flex gap-4 py-4 font-title text-yellow-200">
+                <strong>Vehicles {vehiclesFilm.length} </strong>
+              </h3>
+              <GridList
+                list={vehiclesFilm}
+                cols="grid-cols-2 md:grid-cols-3"
+                typePicture="vehicles"
+              />
+            </div>
+          )}
+          {planetsFilm.length > 0 && view.PLANETS && (
+            <div className="flex flex-col overflow-hidden h-[286px]">
+              <h3 className="flex gap-4 py-4 font-title text-yellow-200">
+                <strong>Planets {planetsFilm.length} </strong>
+              </h3>
+              <GridList
+                list={planetsFilm}
+                cols="grid-cols-2 md:grid-cols-3"
+                typePicture="planets"
+              />
             </div>
           )}
         </article>
