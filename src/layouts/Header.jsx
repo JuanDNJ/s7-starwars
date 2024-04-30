@@ -94,7 +94,7 @@ export default function Header() {
         bg="bg-black"
       >
         <section className="flex justify-center gap-4">
-          <GoToPage font="font-title" url="/home">
+          <GoToPage font="font-title" url="/">
             Welcome
           </GoToPage>
           {isLogin && (

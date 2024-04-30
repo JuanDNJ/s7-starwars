@@ -39,7 +39,6 @@ export default function AppRoutes() {
             loader={dispatch(fetchGetStarShipsPage(1))}
           >
             <Route index element={<LazyHome />} />
-            <Route path="/home" element={<LazyHome />} />
             <Route element={<ProtectedRoutes />}>
               <Route path="/starships" element={<LazyShips />} />
               <Route index element={<LazyShips />} />
