@@ -107,10 +107,8 @@ No obstant això, com hauràs pogut veure, encara tenim un límit de 10 naus per
 
 Has d'implementar un botó al final del llistat de naus, amb el text "view more", que permeti obtenir més naus del servidor i s'agreguin al llistat de naus mostrades a l'usuari/ària.
 
-<div style="background: rgba(200,0,0,.2)">
-> :bulb: **Tip:** <strong style="color:red">Importatant</strong>
+<strong style="color:red">Importatant</strong>
 
 Les crides d'API s'han de fer des de Context o Redux, no des dels components.
 
 Bonus: és preferible implementar un scroll infinit, que carregui més naus a mesura que l'usuari/ària faci scroll de la web.
-</div>
