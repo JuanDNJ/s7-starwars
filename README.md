@@ -148,7 +148,7 @@ Exemple JSON-server-auth
 
 [-> Exemple](https://dev.to/jyeett/the-basic-necessities-of-a-mock-user-authentication-with-json-server-auth-2onj)
 
-## He usando Firebase Authentication
+## He usado Firebase Authentication
 
 [-> Firebase Auth](https://firebase.google.com/docs/auth?hl=es)
 
