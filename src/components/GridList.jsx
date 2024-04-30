@@ -1,9 +1,9 @@
 import { VISUAL_GUIDE_URL, getIdByUrl } from "../utils";
 
-export default function GridList({ list, cols = 3, typePicture }) {
+export default function GridList({ list, cols, typePicture }) {
   return (
     <div
-      className={`grid grid-cols-${cols} gap-y-4 gap-x-2 h-full p-2 overflow-y-scroll`}
+      className={`grid ${cols} border gap-y-4 gap-x-2 h-full p-4 overflow-y-scroll`}
     >
       {list.map((people, inx) => (
         <div
