@@ -16,7 +16,7 @@ Per sort, aquesta API de Star Wars, ja està creada i ens servirà per obtenir e
 
 A continuació, et facilitem diferents enllaços i documentació per implementar correctament l'API:
 
-[SWAPI- The Star Wars API-documentation]("https://swapi.dev/documentation")
+SWAPI- The Star Wars API-documentation [SWAPI- The Star Wars API-documentation](https://swapi.dev/documentation)
 
 -Eina per provar crides API (un detall per part de swapi.dev):
 
@@ -31,6 +31,7 @@ En cas que no funcioni swapi.dev (a vegades les API gratuïtes poden no estar di
 Les crides API que t'interessen són les següents:
 
 - Obtenció del llistat de naus:
+
 
 [-> swapi.dev]("https://swapi.dev/api/starships")
 
