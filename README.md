@@ -107,7 +107,7 @@ No obstant això, com hauràs pogut veure, encara tenim un límit de 10 naus per
 
 Has d'implementar un botó al final del llistat de naus, amb el text "view more", que permeti obtenir més naus del servidor i s'agreguin al llistat de naus mostrades a l'usuari/ària.
 
-<strong style="color:red">Importatant</strong>
+❗ Importatant
 
 Les crides d'API s'han de fer des de Context o Redux, no des dels components.
 
