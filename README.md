@@ -83,4 +83,4 @@ Dades necessàries de cada producte (nau) en el llistat:
 
 - Model.- Model.
 
-![Exercici 1](/images/Imatge1S7.png)
+![Exercici 1](public/images/Imatge1S7.png)
