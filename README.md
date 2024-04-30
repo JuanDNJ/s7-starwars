@@ -84,3 +84,33 @@ Dades necessàries de cada producte (nau) en el llistat:
 - Model.- Model.
 
 ![Exercici 1](public/images/Imatge1S7.png)
+
+Nota: No et preocupis de moment pels estils, els implementaràs més endavant. És preferible centrar-se primer a desenvolupar els components i la lògica, per després aplicar-li estils.
+
+### - Exercici 2
+
+En aquest exercici has de crear la fitxa de cada nau, mostrant tots els seus detalls.
+
+L'usuari/ària podrà accedir als detalls de cada nau clicant en cadascuna d'elles a través del llistat.
+
+![Exercici 2](public/images/Imatge2S7.png)
+
+Com pots veure, aquesta API malgrat ser gratuïta, és molt completa, ja que ens permet fer una web informativa de Star Wars molt interessant!
+
+Igual que existeix aquesta API de Star Wars, existeixen moltes d'altres temàtiques, imagina la quantitat de webs variades que pots fer per millorar el teu portfoli!
+
+### - Exercici 3
+
+GENIAL!, ja tens una versió bàsica de la web creada, en la qual l'usuari/ària pot visualitzar el llistat de naus i, s'escau, observar la fitxa fent “clic”.
+
+No obstant això, com hauràs pogut veure, encara tenim un límit de 10 naus per mostrar. Si t'hi fixes en la resposta de la crida API, veuràs indicat un total de 36 naus, les quals mostrarem a l'usuari/ària sota demanda.
+
+Has d'implementar un botó al final del llistat de naus, amb el text "view more", que permeti obtenir més naus del servidor i s'agreguin al llistat de naus mostrades a l'usuari/ària.
+
+<div style="background: rgba(200,0,0,.2)">
+> :bulb: **Tip:** <strong style="color:red">Importatant</strong>
+
+Les crides d'API s'han de fer des de Context o Redux, no des dels components.
+
+Bonus: és preferible implementar un scroll infinit, que carregui més naus a mesura que l'usuari/ària faci scroll de la web.
+</div>
