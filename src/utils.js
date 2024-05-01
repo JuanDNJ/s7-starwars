@@ -3,6 +3,7 @@ export const VISUAL_GUIDE_URL = "https://starwars-visualguide.com/assets/img/";
 
 export const RESOURCES_FILMS = {
   CHARACTERS: "characters",
+
   FILMS: "films",
   SPECIES: "species",
   STAR_SHIPS: "starships",
@@ -154,6 +155,7 @@ export const getResourceByFilm = async (idFilm, resource, callBack) => {
         }
       });
     }
+
     if (RESOURCES_FILMS.PLANETS === resource) {
       allResources = result.planets.map(async (url) => {
         const pilotResponse = await fetch(url);

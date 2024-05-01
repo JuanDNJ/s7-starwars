@@ -16,7 +16,7 @@ export default function Pilots() {
   return (
     <div className="grid__pilots p-4">
       {pilots.map((rec, index) => (
-        <CardPilot key={index} pilot={rec} />
+        <CardPilot key={index} pilot={rec} shipId={id} />
       ))}
     </div>
   );
