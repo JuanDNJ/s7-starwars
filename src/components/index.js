@@ -14,7 +14,7 @@ import MainHeader from "./MainHeader";
 import Menu from "./Menu";
 import Ship from "./Ship";
 import UserBadget from "./UserBadget";
-
+import CardFilmCharacter from "./CardFilmCharacter";
 export {
   Aside,
   CardFilm,
@@ -32,4 +32,5 @@ export {
   Menu,
   Ship,
   UserBadget,
+  CardFilmCharacter,
 };

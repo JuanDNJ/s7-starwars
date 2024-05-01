@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getResourceByFilm, getFilm } from "../utils";
-import { GridList } from "../components";
+import { Aside, GridList } from "../components";
 import viewIcon from "../assets/images/svg/view.svg";
 
 export default function DetailFilm() {
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
+
   const [film, setFilm] = useState(null);
   const [characterFilm, setCharacterFilm] = useState([]);
   const [speciesFilm, setSpeciesFilm] = useState([]);
@@ -93,6 +94,73 @@ export default function DetailFilm() {
   return (
     film && (
       <section className="flex flex-col gap-4 p-4 ">
+        <Aside>
+          <button
+            className={`group inline-flex items-center justify-center p-2 gap-2 hover:text-yellow-300 ${
+              characterFilm.length > 0 && view.CHARACTERS && "text-yellow-300"
+            }`}
+            onClick={() => handlerView("characters")}
+          >
+            <strong>Characters</strong>{" "}
+            <img
+              src={viewIcon}
+              className="group-hover:scale-75"
+              alt="View Icon"
+            />
+          </button>
+          <button
+            className={`group inline-flex items-center justify-center p-2 gap-2 hover:text-yellow-300 ${
+              speciesFilm.length > 0 && view.SPECIES && "text-yellow-300"
+            }`}
+            onClick={() => handlerView("species")}
+          >
+            <strong>Species</strong>{" "}
+            <img
+              src={viewIcon}
+              className="group-hover:scale-75"
+              alt="View Icon"
+            />
+          </button>
+          <button
+            className={`group inline-flex items-center justify-center p-2 gap-2 hover:text-yellow-300 ${
+              vehiclesFilm.length > 0 && view.VEHICLES && "text-yellow-300"
+            }`}
+            onClick={() => handlerView("vehicles")}
+          >
+            <strong>Vehicles</strong>{" "}
+            <img
+              src={viewIcon}
+              className="group-hover:scale-75"
+              alt="View Icon"
+            />
+          </button>
+          <button
+            className={`group inline-flex items-center justify-center p-2 gap-2 hover:text-yellow-300 ${
+              starshipsFilm.length > 0 && view.STARSHIPS && "text-yellow-300"
+            }`}
+            onClick={() => handlerView("starships")}
+          >
+            <strong>StarShips</strong>{" "}
+            <img
+              src={viewIcon}
+              className="group-hover:scale-75"
+              alt="View Icon"
+            />
+          </button>
+          <button
+            className={`group inline-flex items-center justify-center p-2 gap-2 hover:text-yellow-300 ${
+              planetsFilm.length > 0 && view.PLANETS && "text-yellow-300"
+            }`}
+            onClick={() => handlerView("planets")}
+          >
+            <strong>Planets</strong>{" "}
+            <img
+              src={viewIcon}
+              className="group-hover:scale-75"
+              alt="View Icon"
+            />
+          </button>
+        </Aside>
         <section className="grid grid-cols-6 gap-4">
           <article className="col-span-6 md:col-span-2 flex justify-center">
             <img src={film.picture} alt="Picture by film" />
@@ -115,77 +183,6 @@ export default function DetailFilm() {
               </div>
               <p className="py-4">{film.opening_crawl}</p>
             </div>
-            <aside className="col-span-4">
-              <button
-                className={`group inline-flex items-center justify-center p-2 gap-2 hover:text-yellow-300 ${
-                  characterFilm.length > 0 &&
-                  view.CHARACTERS &&
-                  "text-yellow-300"
-                }`}
-                onClick={() => handlerView("characters")}
-              >
-                <strong>Characters</strong>{" "}
-                <img
-                  src={viewIcon}
-                  className="group-hover:scale-75"
-                  alt="View Icon"
-                />
-              </button>
-              <button
-                className={`group inline-flex items-center justify-center p-2 gap-2 hover:text-yellow-300 ${
-                  speciesFilm.length > 0 && view.SPECIES && "text-yellow-300"
-                }`}
-                onClick={() => handlerView("species")}
-              >
-                <strong>Species</strong>{" "}
-                <img
-                  src={viewIcon}
-                  className="group-hover:scale-75"
-                  alt="View Icon"
-                />
-              </button>
-              <button
-                className={`group inline-flex items-center justify-center p-2 gap-2 hover:text-yellow-300 ${
-                  vehiclesFilm.length > 0 && view.VEHICLES && "text-yellow-300"
-                }`}
-                onClick={() => handlerView("vehicles")}
-              >
-                <strong>Vehicles</strong>{" "}
-                <img
-                  src={viewIcon}
-                  className="group-hover:scale-75"
-                  alt="View Icon"
-                />
-              </button>
-              <button
-                className={`group inline-flex items-center justify-center p-2 gap-2 hover:text-yellow-300 ${
-                  starshipsFilm.length > 0 &&
-                  view.STARSHIPS &&
-                  "text-yellow-300"
-                }`}
-                onClick={() => handlerView("starships")}
-              >
-                <strong>StarShips</strong>{" "}
-                <img
-                  src={viewIcon}
-                  className="group-hover:scale-75"
-                  alt="View Icon"
-                />
-              </button>
-              <button
-                className={`group inline-flex items-center justify-center p-2 gap-2 hover:text-yellow-300 ${
-                  planetsFilm.length > 0 && view.PLANETS && "text-yellow-300"
-                }`}
-                onClick={() => handlerView("planets")}
-              >
-                <strong>Planets</strong>{" "}
-                <img
-                  src={viewIcon}
-                  className="group-hover:scale-75"
-                  alt="View Icon"
-                />
-              </button>
-            </aside>
           </article>
         </section>
         <article className="grid md:grid-cols-2 gap-2">

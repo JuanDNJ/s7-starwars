@@ -2,7 +2,7 @@ import { List, Aside, Loading } from "../components";
 import { useAppDispatch, useAppSelector } from "../store";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchGetStarShipsPage } from "../store/tunks";
-import { STAR_WARS } from "../utils";
+import { STAR_WARS } from "../config";
 
 export default function Starships() {
   const shipsAll = useAppSelector((state) => state.starShips);

@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { STAR_WARS } from "../../utils";
+import { STAR_WARS } from "../../config";
 
 export const fetchSearchStarships = createAsyncThunk(
   "starships/ships",

@@ -1,87 +1,91 @@
-import { VISUAL_GUIDE_URL, getIdByUrl } from "../utils";
+import { VISUAL_GUIDE_URL } from "../config";
+import { getIdByUrl } from "../utils";
+import GoToPage from "./GoToPage";
 
 export default function GridList({ list, cols, typePicture }) {
   return (
     <div
       className={`grid ${cols} gap-y-4 gap-x-2 h-full p-4 overflow-y-auto grid__list`}
     >
-      {list.map((people, inx) => (
-        <div
-          key={inx}
-          className="relative hover:scale-110 transition-transform duration-300 cursor-pointer"
+      {list.map((people) => (
+        <GoToPage
+          key={people.name}
+          url={`/detail/film/character?id=${getIdByUrl(people.url)}`}
         >
-          <strong className="absolute bottom-0 text-[.7rem] bg-[rgba(0,0,0,.8)] border-t-2 border-t-orange-500 w-[100%] p-1">
-            {people.name}
-          </strong>
-          {typePicture === "characters" && (
-            <img
-              className="filmCharacterImg"
-              src={
-                VISUAL_GUIDE_URL +
-                "/characters/" +
-                getIdByUrl(people.url) +
-                ".jpg"
-              }
-              alt=""
-            />
-          )}
-          {typePicture === "species" && (
-            <img
-              className="filmCharacterImg"
-              src={
-                VISUAL_GUIDE_URL +
-                "/" +
-                typePicture +
-                "/" +
-                +getIdByUrl(people.url) +
-                ".jpg"
-              }
-              alt=""
-            />
-          )}
-          {typePicture === "starships" && (
-            <img
-              className="filmCharacterImg"
-              src={
-                VISUAL_GUIDE_URL +
-                "/" +
-                typePicture +
-                "/" +
-                getIdByUrl(people.url) +
-                ".jpg"
-              }
-              alt="Image not found"
-            />
-          )}
-          {typePicture === "vehicles" && (
-            <img
-              className="filmCharacterImg"
-              src={
-                VISUAL_GUIDE_URL +
-                "/" +
-                typePicture +
-                "/" +
-                getIdByUrl(people.url) +
-                ".jpg"
-              }
-              alt="Image not found"
-            />
-          )}
-          {typePicture === "planets" && (
-            <img
-              className="filmCharacterImg"
-              src={
-                VISUAL_GUIDE_URL +
-                "/" +
-                typePicture +
-                "/" +
-                getIdByUrl(people.url) +
-                ".jpg"
-              }
-              alt="Image not found"
-            />
-          )}
-        </div>
+          <div className="relative hover:scale-110 transition-transform duration-300 cursor-pointer">
+            <strong className="absolute bottom-0 text-[.7rem] bg-[rgba(0,0,0,.8)] border-t-2 border-t-orange-500 w-[100%] p-1">
+              {people.name}
+            </strong>
+            {typePicture === "characters" && (
+              <img
+                className="filmCharacterImg"
+                src={
+                  VISUAL_GUIDE_URL +
+                  "/characters/" +
+                  getIdByUrl(people.url) +
+                  ".jpg"
+                }
+                alt=""
+              />
+            )}
+            {typePicture === "species" && (
+              <img
+                className="filmCharacterImg"
+                src={
+                  VISUAL_GUIDE_URL +
+                  "/" +
+                  typePicture +
+                  "/" +
+                  +getIdByUrl(people.url) +
+                  ".jpg"
+                }
+                alt=""
+              />
+            )}
+            {typePicture === "starships" && (
+              <img
+                className="filmCharacterImg"
+                src={
+                  VISUAL_GUIDE_URL +
+                  "/" +
+                  typePicture +
+                  "/" +
+                  getIdByUrl(people.url) +
+                  ".jpg"
+                }
+                alt="Image not found"
+              />
+            )}
+            {typePicture === "vehicles" && (
+              <img
+                className="filmCharacterImg"
+                src={
+                  VISUAL_GUIDE_URL +
+                  "/" +
+                  typePicture +
+                  "/" +
+                  getIdByUrl(people.url) +
+                  ".jpg"
+                }
+                alt="Image not found"
+              />
+            )}
+            {typePicture === "planets" && (
+              <img
+                className="filmCharacterImg"
+                src={
+                  VISUAL_GUIDE_URL +
+                  "/" +
+                  typePicture +
+                  "/" +
+                  getIdByUrl(people.url) +
+                  ".jpg"
+                }
+                alt="Image not found"
+              />
+            )}
+          </div>
+        </GoToPage>
       ))}
     </div>
   );

@@ -1,41 +1,22 @@
-export const STAR_WARS = "https://swapi.py4e.com/api/";
-export const VISUAL_GUIDE_URL = "https://starwars-visualguide.com/assets/img/";
+import {
+  RESOURCES_FILMS,
+  RESOURCES_STAR_WARS,
+  STAR_WARS,
+  VISUAL_GUIDE_URL,
+  newUser,
+} from "./config";
 
-export const RESOURCES_FILMS = {
-  CHARACTERS: "characters",
-
-  FILMS: "films",
-  SPECIES: "species",
-  STAR_SHIPS: "starships",
-  VEHICLES: "vehicles",
-  PLANETS: "planets",
-};
-
-export const RESOURCES_STAR_WARS = [
-  "root",
-  "people",
-  "films",
-  "starships",
-  "vehicles",
-  "species",
-  "planets",
-];
-
-export const RESOURCES_VISULA_GUIDE = [
-  "characters",
-  "films",
-  "species",
-  "starships",
-  "vehicles",
-  "planets",
-];
-
-export const newUser = {
-  email: "",
-  displayName: "",
-  uid: "",
-  isLogin: false,
-};
+export async function getOnlyObjectResource(nameResource, id, callBack) {
+  const request = await fetch(
+    `https://swapi.py4e.com/api/${nameResource}/${id}`
+  );
+  if (!request.ok) return;
+  const result = await request.json();
+  callBack({
+    ...result,
+    picture: getPictureByUrl(result.url, nameResource),
+  });
+}
 
 export async function getPicture(resource) {
   try {
@@ -46,7 +27,7 @@ export async function getPicture(resource) {
   }
 }
 
-export const getPictureByUrl = (url, resource) => {
+export function getPictureByUrl(url, resource) {
   let newUrl = "";
   if (url.includes(STAR_WARS)) {
     //   console.log(movie.url.includes(STAR_WARS));
@@ -62,7 +43,7 @@ export const getPictureByUrl = (url, resource) => {
     }
   }
   return VISUAL_GUIDE_URL.concat(newUrl);
-};
+}
 
 export function createUrlDetail(payload) {
   const firstIndex = payload.indexOf("starship");
@@ -71,7 +52,7 @@ export function createUrlDetail(payload) {
   return `?${url}`;
 }
 
-export const createUser = (user) => {
+export function createUser(user) {
   if (user.email && !user.displayName) {
     newUser.displayName = user.email.slice(0, user.email.indexOf("@"));
   } else {
@@ -81,9 +62,9 @@ export const createUser = (user) => {
   newUser.uid = user.uid;
   newUser.isLogin = !!user;
   return newUser;
-};
+}
 
-export const getShip = async (id, search, callBack) => {
+export async function getShip(id, search, callBack) {
   try {
     const request = await fetch(STAR_WARS + "starships/" + id);
     if (request.ok) {
@@ -109,9 +90,9 @@ export const getShip = async (id, search, callBack) => {
   } catch (error) {
     console.error(error);
   }
-};
+}
 
-export const getFilm = async (id, callback) => {
+export async function getFilm(id, callback) {
   try {
     const film = await fetch(`${STAR_WARS}films/${id}`);
     if (!film.ok) throw new Error("Invalid id");
@@ -120,9 +101,9 @@ export const getFilm = async (id, callback) => {
   } catch (error) {
     console.error(error);
   }
-};
+}
 
-export const getResourceByFilm = async (idFilm, resource, callBack) => {
+export async function getResourceByFilm(idFilm, resource, callBack) {
   try {
     const request = await fetch(`${STAR_WARS}films/${idFilm}`);
 
@@ -177,9 +158,9 @@ export const getResourceByFilm = async (idFilm, resource, callBack) => {
   } catch (error) {
     console.error(error);
   }
-};
+}
 
-export const getIdByUrl = (url) => {
+export function getIdByUrl(url) {
   try {
     let ismatch = "";
     for (let i = 0; i < RESOURCES_STAR_WARS.length; i++) {
@@ -193,4 +174,4 @@ export const getIdByUrl = (url) => {
   } catch (error) {
     console.log(error);
   }
-};
+}

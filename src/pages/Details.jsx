@@ -10,16 +10,17 @@ export default function Deatils() {
   const id = searchParams.get("id");
   const active = searchParams.get("active");
   const navigate = useNavigate();
-  console.log(active);
+
   // REDUX TOOLKIT
   const { isLoading, error, data } = useAppSelector((state) => state.starShip);
 
   const dispatch = useAppDispatch();
-  if (active === "films") {
-    navigate(`films?id=${id}`);
-  }
+
   useEffect(() => {
     dispatch(fetchGetStarShipById(id));
+    if (active === "films") {
+      navigate(`films?id=${id}`);
+    }
   }, [id]);
 
   return (

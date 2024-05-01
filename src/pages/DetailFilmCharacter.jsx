@@ -3,26 +3,22 @@ import { useSearchParams } from "react-router-dom";
 import { getOnlyObjectResource } from "../utils";
 import { Aside, CardFilmCharacter, GoToPage } from "../components";
 
-export default function DetailPilot() {
+export default function DetailFilmCharacter() {
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
-  const shipId = searchParams.get("shipId");
-  const [pilot, startPilot] = useState();
-
+  const [filmCharacter, initFilmCharacter] = useState(null);
   useEffect(() => {
     getOnlyObjectResource("people", id, (resource) => {
-      startPilot(() => resource);
+      initFilmCharacter(() => resource);
     });
-  }, []);
+  }, [id]);
   return (
-    pilot && (
-      <section className="flex flex-col">
+    filmCharacter && (
+      <section>
         <Aside>
-          <GoToPage url={`/starships/detail/pilots?id=${shipId}`}>
-            Go back
-          </GoToPage>
+          <GoToPage url={`/starships/detail/films?id=${2}`}>Go back</GoToPage>
         </Aside>
-        <CardFilmCharacter character={pilot} />
+        <CardFilmCharacter character={filmCharacter} />
       </section>
     )
   );

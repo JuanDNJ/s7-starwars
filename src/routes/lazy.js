@@ -10,6 +10,9 @@ const LazyPilots = lazy(() => import("../pages/Pilots.jsx"));
 const LazyFilms = lazy(() => import("../pages/Films.jsx"));
 const LazyFilm = lazy(() => import("../pages/DetailFilm.jsx"));
 const LazyPilot = lazy(() => import("../pages/DetailPilot.jsx"));
+const LazyFilmCharacter = lazy(() =>
+  import("../pages/DetailFilmCharacter.jsx")
+);
 export {
   MainLayout,
   LazyHome,
@@ -22,4 +25,5 @@ export {
   LazyPilot,
   LazyFilms,
   LazyFilm,
+  LazyFilmCharacter,
 };

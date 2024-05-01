@@ -12,6 +12,7 @@ import {
   MainLayout,
   LazyFilm,
   LazyPilot,
+  LazyFilmCharacter,
 } from "./lazy";
 
 import { useAppDispatch } from "../store";
@@ -46,6 +47,10 @@ export default function AppRoutes() {
                 <Route path="*" element={<Lazy404 />} />
               </Route>
               <Route path="/detail/film" element={<LazyFilm />}></Route>
+              <Route
+                path="/detail/film/character"
+                element={<LazyFilmCharacter />}
+              ></Route>
               <Route path="/detail/pilot" element={<LazyPilot />}></Route>
             </Route>
 
