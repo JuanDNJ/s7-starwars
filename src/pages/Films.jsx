@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getShip } from "../utils";
-import CardFilm from "../components/CardFilm";
+import { CardFilm } from "../components";
 
 export default function Films() {
   const [searchParams] = useSearchParams();

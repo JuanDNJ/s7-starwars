@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getResourceByFilm, getFilm } from "../utils";
-import GridList from "../components/GridList";
+import { GridList } from "../components";
 import viewIcon from "../assets/images/svg/view.svg";
 
 export default function DetailFilm() {
@@ -62,15 +62,10 @@ export default function DetailFilm() {
           };
         });
         break;
-      default:
-        break;
     }
   };
-  useEffect(() => {
-    getFilm(id, (film) => {
-      setFilm(() => film);
-    });
-    // TODO: Refactorizar esta sección
+
+  const callResourcesFilm = () => {
     getResourceByFilm(id, "starships", (starships) => {
       setStarshipsFilm(() => starships);
     });
@@ -86,8 +81,13 @@ export default function DetailFilm() {
     getResourceByFilm(id, "vehicles", (vehicles) => {
       setVehiclesFilm(() => vehicles);
     });
-    // TODO:
-    console.log(film);
+  };
+
+  useEffect(() => {
+    getFilm(id, (film) => {
+      setFilm(() => film);
+    });
+    callResourcesFilm();
   }, [id]);
 
   return (
@@ -203,7 +203,10 @@ export default function DetailFilm() {
             </div>
           )}
           {speciesFilm.length > 0 && view.SPECIES && (
-            <div className={`flex flex-col overflow-hidden h-[286px]`}>
+            <div
+              id="species"
+              className={`flex flex-col overflow-hidden h-[286px]`}
+            >
               <h3 className="flex gap-4 py-4 font-title text-yellow-200">
                 <strong>Species {speciesFilm.length} </strong>
               </h3>

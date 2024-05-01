@@ -1,13 +1,9 @@
 import { Outlet, useSearchParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-
-import DetailShip from "../components/DetailShip";
-import Aside from "../components/Aside";
-import Menu from "../components/Menu";
-import GoToPage from "../components/GoToPage";
+import { Aside, Menu, DetailShip, GoToPage, Loading } from "../components";
 import { useAppDispatch, useAppSelector } from "../store";
 import { fetchGetStarShipById } from "../store/tunks";
-import Loading from "../components/Loading";
+
 export default function Deatils() {
   // Buscando el parametro id de la ruta
   const [searchParams] = useSearchParams();

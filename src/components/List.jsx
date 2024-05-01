@@ -1,4 +1,4 @@
-import Ship from "./Ship";
+import { Ship } from "./index";
 
 export default function List({ payload, children }) {
   return (

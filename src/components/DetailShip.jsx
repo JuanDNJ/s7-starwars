@@ -1,6 +1,4 @@
-import { DetailPicture } from "./DetailPicture";
-import DetailShipItem from "./DetailShipItem";
-
+import { DetailPicture, DetailShipItem } from "./index";
 export default function DetailShip({ ship }) {
   return (
     <article className="flex flex-col md:flex-row gap-4">

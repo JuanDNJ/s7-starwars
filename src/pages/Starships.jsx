@@ -1,7 +1,5 @@
-import List from "../components/List";
-import Aside from "../components/Aside";
+import { List, Aside, Loading } from "../components";
 import { useAppDispatch, useAppSelector } from "../store";
-import Loading from "../components/Loading";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchGetStarShipsPage } from "../store/tunks";
 import { STAR_WARS } from "../utils";

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getPicture } from "../utils";
 import ship404 from "../assets/images/jpg/ship404.jpg";
-export function DetailPicture({ id }) {
+export default function DetailPicture({ id }) {
   const [imgShip, setImgShip] = useState();
   const picture = async () => {
     const img = await getPicture(id);

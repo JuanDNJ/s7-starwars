@@ -1,5 +1,4 @@
-import GoToPage from "../components/GoToPage";
-import Menu from "../components/Menu";
+import { GoToPage, Menu } from "../components";
 import signupIcon from "../assets/images/svg/signup.svg";
 import loginIcon from "../assets/images/svg/login.svg";
 export default function Home() {

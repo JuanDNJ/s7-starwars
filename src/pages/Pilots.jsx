@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router-dom";
-import CardPilot from "../components/CardPilots";
+import { CardPilot } from "../components";
 import { getShip } from "../utils";
 import { useEffect, useState } from "react";
 export default function Pilots() {

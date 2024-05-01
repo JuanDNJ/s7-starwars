@@ -1,10 +1,9 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { appAuth } from "../firebase";
 import { useNavigate } from "react-router-dom";
-import GoToPage from "../components/GoToPage";
+import { GoToPage, ErrorFirebase } from "../components";
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../store";
-import ErrorFirebase from "../components/ErrorFirebase";
 import viewPasswordIcon from "../assets/images/svg/view_password.svg";
 import { setErrorCode } from "../store/slices/error";
 export default function Signup() {

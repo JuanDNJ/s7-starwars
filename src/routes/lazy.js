@@ -1,6 +1,5 @@
 import { lazy } from "react";
 const MainLayout = lazy(() => import("../layouts/MainLayout.jsx"));
-
 const LazyHome = lazy(() => import("../pages/Home.jsx"));
 const LazyShips = lazy(() => import("../pages/Starships.jsx"));
 const Lazy404 = lazy(() => import("../pages/Page404.jsx"));
