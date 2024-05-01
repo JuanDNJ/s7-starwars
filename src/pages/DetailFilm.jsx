@@ -7,7 +7,7 @@ import viewIcon from "../assets/images/svg/view.svg";
 export default function DetailFilm() {
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
-
+  // TODO: Refactorizar los estados, intentar pasarlos a la store
   const [film, setFilm] = useState(null);
   const [characterFilm, setCharacterFilm] = useState([]);
   const [speciesFilm, setSpeciesFilm] = useState([]);
@@ -21,6 +21,7 @@ export default function DetailFilm() {
     VEHICLES: false,
     STARSHIPS: false,
   });
+
   const handlerView = (resource) => {
     switch (resource) {
       case "characters":
@@ -65,7 +66,7 @@ export default function DetailFilm() {
         break;
     }
   };
-
+  // TODO: Refactorizar esta función, buscaremos la manera de mejorarlo
   const callResourcesFilm = () => {
     getResourceByFilm(id, "starships", (starships) => {
       setStarshipsFilm(() => starships);
