@@ -1,5 +1,15 @@
 export const STAR_WARS = "https://swapi.py4e.com/api/";
 export const VISUAL_GUIDE_URL = "https://starwars-visualguide.com/assets/img/";
+
+export const RESOURCES_FILMS = {
+  CHARACTERS: "characters",
+  FILMS: "films",
+  SPECIES: "species",
+  STAR_SHIPS: "starships",
+  VEHICLES: "vehicles",
+  PLANETS: "planets",
+};
+
 export const RESOURCES_STAR_WARS = [
   "root",
   "people",
@@ -11,7 +21,7 @@ export const RESOURCES_STAR_WARS = [
 ];
 
 export const RESOURCES_VISULA_GUIDE = [
-  "character",
+  "characters",
   "films",
   "species",
   "starships",
@@ -28,9 +38,7 @@ export const newUser = {
 
 export async function getPicture(resource) {
   try {
-    const request = await fetch(
-      `https://starwars-visualguide.com/assets/img/starships/${resource}.jpg`
-    );
+    const request = await fetch(`${VISUAL_GUIDE_URL}starships/${resource}.jpg`);
     if (request.ok) return request;
   } catch (error) {
     console.error(error);
@@ -101,80 +109,86 @@ export const getShip = async (id, search, callBack) => {
     console.error(error);
   }
 };
+
 export const getFilm = async (id, callback) => {
-  const film = await fetch(`https://swapi.py4e.com/api/films/${id}`);
-  const result = await film.json();
-  callback({ ...result, picture: getPictureByUrl(result.url, "film") });
+  try {
+    const film = await fetch(`${STAR_WARS}films/${id}`);
+    if (!film.ok) throw new Error("Invalid id");
+    const result = await film.json();
+    callback({ ...result, picture: getPictureByUrl(result.url, "film") });
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export const getResourceByFilm = async (idFilm, resource, callBack) => {
   try {
-    const request = await fetch(STAR_WARS + "films/" + idFilm);
+    const request = await fetch(`${STAR_WARS}films/${idFilm}`);
 
-    if (request.ok) {
-      const result = await request.json();
-      let allResources = [];
-      // GET ALL FILES BY RESOURCE
+    if (!request.ok) throw new Error("Invalid resource");
 
-      if (resource === "starships") {
-        allResources = result.starships.map(async (url) => {
-          const pilotResponse = await fetch(url);
-          if (pilotResponse.ok) {
-            return pilotResponse.json();
-          }
-        });
-      }
-      if (resource === "characters") {
-        allResources = result.characters.map(async (url) => {
-          const pilotResponse = await fetch(url);
-          if (pilotResponse.ok) {
-            return pilotResponse.json();
-          }
-        });
-      }
-      if (resource === "species") {
-        allResources = result.species.map(async (url) => {
-          const pilotResponse = await fetch(url);
-          if (pilotResponse.ok) {
-            return pilotResponse.json();
-          }
-        });
-      }
-      if (resource === "planets") {
-        allResources = result.planets.map(async (url) => {
-          const pilotResponse = await fetch(url);
-          if (pilotResponse.ok) {
-            return pilotResponse.json();
-          }
-        });
-      }
-      if (resource === "vehicles") {
-        allResources = result.vehicles.map(async (url) => {
-          const pilotResponse = await fetch(url);
-          if (pilotResponse.ok) {
-            return pilotResponse.json();
-          }
-        });
-      }
-      const allPromises = await Promise.all(allResources);
-      callBack(allPromises);
-    } else {
-      throw new Error("Invalid resource");
+    const result = await request.json();
+    let allResources = [];
+
+    if (RESOURCES_FILMS.STAR_SHIPS === resource) {
+      allResources = result.starships.map(async (url) => {
+        const pilotResponse = await fetch(url);
+        if (pilotResponse.ok) {
+          return pilotResponse.json();
+        }
+      });
     }
+    if (RESOURCES_FILMS.CHARACTERS === resource) {
+      allResources = result.characters.map(async (url) => {
+        const pilotResponse = await fetch(url);
+        if (pilotResponse.ok) {
+          return pilotResponse.json();
+        }
+      });
+    }
+    if (RESOURCES_FILMS.SPECIES === resource) {
+      allResources = result.species.map(async (url) => {
+        const pilotResponse = await fetch(url);
+        if (pilotResponse.ok) {
+          return pilotResponse.json();
+        }
+      });
+    }
+    if (RESOURCES_FILMS.PLANETS === resource) {
+      allResources = result.planets.map(async (url) => {
+        const pilotResponse = await fetch(url);
+        if (pilotResponse.ok) {
+          return pilotResponse.json();
+        }
+      });
+    }
+    if (RESOURCES_FILMS.VEHICLES === resource) {
+      allResources = result.vehicles.map(async (url) => {
+        const pilotResponse = await fetch(url);
+        if (pilotResponse.ok) {
+          return pilotResponse.json();
+        }
+      });
+    }
+    const allPromises = await Promise.all(allResources);
+    callBack(allPromises);
   } catch (error) {
     console.error(error);
   }
 };
 
 export const getIdByUrl = (url) => {
-  // https://swapi.py4e.com/api/films/2/
-  let ismatch = -1;
-  for (let i = 0; i < RESOURCES_STAR_WARS.length; i++) {
-    if (url.includes(STAR_WARS.concat(RESOURCES_STAR_WARS[i]))) {
-      ismatch = url
-        .replace(STAR_WARS.concat(RESOURCES_STAR_WARS[i]) + "/", "")
-        .replace("/", "");
+  try {
+    let ismatch = "";
+    for (let i = 0; i < RESOURCES_STAR_WARS.length; i++) {
+      if (url.includes(STAR_WARS.concat(RESOURCES_STAR_WARS[i]))) {
+        ismatch = url
+          .replace(STAR_WARS.concat(RESOURCES_STAR_WARS[i]) + "/", "")
+          .replace("/", "");
+      }
     }
+    return ismatch;
+  } catch (error) {
+    console.log(error);
   }
-  return ismatch;
 };

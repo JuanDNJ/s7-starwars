@@ -66,7 +66,7 @@ body {
   background-color: #010101fc;
   height: 100vh;
   min-width: 100vw;
-  background-image: url("/public/images/klipartz.com.png");
+  background-image: url("images/klipartz.com.png");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: contain;
@@ -111,19 +111,18 @@ a:hover {
 a.active {
   @apply text-yellow-200 border-b-2 border-b-yellow-500;
 }
-a.pending {
-  @apply text-red-400 hover:border-b-red-500 hover:text-red-200;
-}
+
 .filmCharacterImg {
   object-fit: cover;
   width: 100%;
 }
 .invalid {
+  @apply text-orange-400 text-[12px] text-center absolute -top-16 md:-top-0 w-full;
   animation: invalidCredentials 600ms ease-in-out infinite alternate;
 }
 
 @keyframes invalidCredentials {
-  100% {
+  from {
     color: rgb(240, 100, 123);
     transform: scale(1.03);
   }
