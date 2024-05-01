@@ -1,4 +1,4 @@
-import { Outlet, useSearchParams } from "react-router-dom";
+import { Outlet, useNavigate, useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
 import { Aside, Menu, DetailShip, GoToPage, Loading } from "../components";
 import { useAppDispatch, useAppSelector } from "../store";
@@ -8,12 +8,16 @@ export default function Deatils() {
   // Buscando el parametro id de la ruta
   const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
-
+  const active = searchParams.get("active");
+  const navigate = useNavigate();
+  console.log(active);
   // REDUX TOOLKIT
   const { isLoading, error, data } = useAppSelector((state) => state.starShip);
 
   const dispatch = useAppDispatch();
-
+  if (active === "films") {
+    navigate(`films?id=${id}`);
+  }
   useEffect(() => {
     dispatch(fetchGetStarShipById(id));
   }, [id]);
