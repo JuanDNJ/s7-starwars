@@ -3,7 +3,6 @@ import CardFilm from "./CardFilm";
 import CardPilot from "./CardPilots";
 import DetailPicture from "./DetailPicture";
 import DetailShip from "./DetailShip";
-import DetailShipItem from "./DetailShipItem";
 import ErrorFirebase from "./ErrorFirebase";
 import GoToPage from "./GoToPage";
 import GridList from "./GridList";
@@ -15,13 +14,16 @@ import Menu from "./Menu";
 import Ship from "./Ship";
 import UserBadget from "./UserBadget";
 import CardFilmCharacter from "./CardFilmCharacter";
+import ItemList from "./ItemList";
+import UnorderedList from "./UnorderedList";
+import ListTitle from "./ListTitle";
+
 export {
   Aside,
   CardFilm,
   CardPilot,
   DetailPicture,
   DetailShip,
-  DetailShipItem,
   ErrorFirebase,
   GoToPage,
   GridList,
@@ -33,4 +35,7 @@ export {
   Ship,
   UserBadget,
   CardFilmCharacter,
+  ItemList,
+  UnorderedList,
+  ListTitle,
 };
