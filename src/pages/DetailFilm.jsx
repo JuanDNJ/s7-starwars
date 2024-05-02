@@ -16,7 +16,7 @@ export default function DetailFilm() {
   const [starshipsFilm, setStarshipsFilm] = useState([]);
   const [view, setView] = useState({
     SPECIES: false,
-    CHARACTERS: false,
+    CHARACTERS: true,
     PLANETS: false,
     VEHICLES: false,
     STARSHIPS: false,

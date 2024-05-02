@@ -1,4 +1,4 @@
-import { VISUAL_GUIDE_URL } from "../config";
+import { VISUAL_GUIDE_URL, RESOURCES_FILMS } from "../config";
 import { getIdByUrl } from "../utils";
 import GoToPage from "./GoToPage";
 
@@ -16,7 +16,7 @@ export default function GridList({ list, cols, typePicture }) {
             <strong className="absolute bottom-0 text-[.7rem] bg-[rgba(0,0,0,.8)] border-t-2 border-t-orange-500 w-[100%] p-1">
               {people.name}
             </strong>
-            {typePicture === "characters" && (
+            {RESOURCES_FILMS.CHARACTERS === typePicture && (
               <img
                 className="filmCharacterImg"
                 src={
@@ -28,7 +28,7 @@ export default function GridList({ list, cols, typePicture }) {
                 alt=""
               />
             )}
-            {typePicture === "species" && (
+            {RESOURCES_FILMS.SPECIES === typePicture && (
               <img
                 className="filmCharacterImg"
                 src={
@@ -42,7 +42,7 @@ export default function GridList({ list, cols, typePicture }) {
                 alt=""
               />
             )}
-            {typePicture === "starships" && (
+            {RESOURCES_FILMS.STAR_SHIPS === typePicture && (
               <img
                 className="filmCharacterImg"
                 src={
@@ -56,7 +56,7 @@ export default function GridList({ list, cols, typePicture }) {
                 alt="Image not found"
               />
             )}
-            {typePicture === "vehicles" && (
+            {RESOURCES_FILMS.VEHICLES === typePicture && (
               <img
                 className="filmCharacterImg"
                 src={
@@ -70,7 +70,7 @@ export default function GridList({ list, cols, typePicture }) {
                 alt="Image not found"
               />
             )}
-            {typePicture === "planets" && (
+            {RESOURCES_FILMS.PLANETS === typePicture && (
               <img
                 className="filmCharacterImg"
                 src={
