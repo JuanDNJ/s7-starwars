@@ -105,7 +105,7 @@ export default function DetailFilm() {
         <article className="grid md:grid-cols-2 gap-2">
           {character.length > 0 && view.CHARACTERS && (
             <div className={`flex flex-col overflow-hidden h-[286px]`}>
-              <h3 className="flex gap-4 py-4 font-title text-yellow-200">
+              <h3 className="flex gap-4 py-4  text-yellow-200">
                 <strong>Characters {character.length} </strong>
               </h3>
 
@@ -121,7 +121,7 @@ export default function DetailFilm() {
               id="species"
               className={`flex flex-col overflow-hidden h-[286px]`}
             >
-              <h3 className="flex gap-4 py-4 font-title text-yellow-200">
+              <h3 className="flex gap-4 py-4  text-yellow-200">
                 <strong>Species {species.length} </strong>
               </h3>
               <GridList
@@ -133,7 +133,7 @@ export default function DetailFilm() {
           )}
           {starships.length > 0 && view.STARSHIPS && (
             <div className="flex flex-col overflow-hidden h-[286px]">
-              <h3 className="flex gap-4 py-4 font-title text-yellow-200">
+              <h3 className="flex gap-4 py-4  text-yellow-200">
                 <strong>StarShips {starships.length} </strong>
               </h3>
               <GridList
@@ -145,7 +145,7 @@ export default function DetailFilm() {
           )}
           {vehicles.length > 0 && view.VEHICLES && (
             <div className="flex flex-col overflow-hidden h-[286px]">
-              <h3 className="flex gap-4 py-4 font-title text-yellow-200">
+              <h3 className="flex gap-4 py-4  text-yellow-200">
                 <strong>Vehicles {vehicles.length} </strong>
               </h3>
               <GridList
@@ -157,7 +157,7 @@ export default function DetailFilm() {
           )}
           {planets.length > 0 && view.PLANETS && (
             <div className="flex flex-col overflow-hidden h-[286px]">
-              <h3 className="flex gap-4 py-4 font-title text-yellow-200">
+              <h3 className="flex gap-4 py-4  text-yellow-200">
                 <strong>Planets {planets.length} </strong>
               </h3>
               <GridList
