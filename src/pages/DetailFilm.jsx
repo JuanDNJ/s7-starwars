@@ -99,7 +99,9 @@ export default function DetailFilm() {
             ></iframe>
           </ul>
         </section>
-        <Aside>{resourcesFilms()}</Aside>
+        <Aside align={"md:justify-center"} text="text-sm">
+          {resourcesFilms()}
+        </Aside>
         <article className="grid md:grid-cols-2 gap-2">
           {character.length > 0 && view.CHARACTERS && (
             <div className={`flex flex-col overflow-hidden h-[286px]`}>
