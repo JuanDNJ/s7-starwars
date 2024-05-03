@@ -23,9 +23,11 @@ export default function Starships() {
       {isLoading && <Loading />}
       {data && (
         <article className="flex flex-col py-8 gap-8">
-          <Aside text="text-stone-400 text-xl">
-            StarShips{" "}
-            <strong className="text-yellow-400 text-sm">{data.length}</strong>
+          <Aside text="text-stone-400 text-xl" align="justify-start">
+            <div className="pl-4 flex items-baseline gap-2">
+              <strong>StarShips</strong>
+              <span className="text-yellow-400 text-sm">{data.length}</span>
+            </div>
           </Aside>
           <InfiniteScroll
             dataLength={data.length}
