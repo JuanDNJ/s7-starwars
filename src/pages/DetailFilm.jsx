@@ -92,10 +92,6 @@ export default function DetailFilm() {
               height="315"
               src={film.trailer}
               title={film.title}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowfullscreen
             ></iframe>
           </ul>
         </section>
