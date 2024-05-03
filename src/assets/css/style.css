@@ -44,23 +44,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track-piece {
   background-color: #c2d2e400;
 }
 
 ::-webkit-scrollbar-thumb:vertical {
-  height: 30px;
-  background-color: #faf880;
+  background-color: #5a595748;
+  border-radius: 2.5px;
 }
-.grid__list::-webkit-scrollbar {
-  width: 10px;
-}
-.grid__list::-webkit-scrollbar-thumb:vertical {
-  background-color: #d3f8ef;
-  border-radius: 5px;
-}
+
 body {
   display: grid;
   background-color: #010101fc;
