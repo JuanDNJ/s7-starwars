@@ -4,7 +4,7 @@ export default function GoToPage({ children, url, _blank, icon, font, title }) {
   let target = "";
   let linkClass = "font-bold pb-1";
 
-  if (icon) linkClass = "flex justify-center items-center ";
+  if (icon) linkClass = "flex justify-center items-center";
 
   if (_blank) target = "_blank";
 

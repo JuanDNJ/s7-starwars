@@ -31,7 +31,7 @@ export default function Deatils() {
       ) : (
         <>
           <Aside
-            text="font-title text-yellow-200 text-[.8rem] first-letter:text-lg "
+            text="font-title text-yellow-200 text-[.8rem] pl-4 py-2 first-letter:text-lg "
             top
           >
             {data.name}
@@ -39,7 +39,7 @@ export default function Deatils() {
           <section className="order-0 md:p-8" id="view">
             {<DetailShip ship={{ ...data, id }} />}
           </section>
-          <Aside bottom>
+          <Aside bottom text="">
             <Menu sticky="sticky top-96">
               <section className="col-span-4 md:col-span-6 flex gap-4">
                 {data.films && data.films.length > 0 && (

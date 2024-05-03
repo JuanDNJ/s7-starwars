@@ -109,10 +109,7 @@ a:active,
 a:focus {
   @apply text-yellow-200 border-b-2 border-b-yellow-500;
 }
-.filmCharacterImg {
-  object-fit: cover;
-  width: 100%;
-}
+
 .invalid {
   @apply text-orange-400 text-[12px] text-center absolute -top-16 md:-top-0 w-full;
   animation: invalidCredentials 600ms ease-in-out infinite alternate;
