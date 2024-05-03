@@ -75,7 +75,7 @@ export default function DetailFilm() {
             />
           </article>
 
-          <ul className="col-span-12 md:col-span-7 flex flex-col p-4 gap-2">
+          <ul className="col-span-12 md:col-span-7 flex flex-col p-4 gap-1">
             <ListTitle>
               <strong>{film.title}</strong>
               <span className="text-sm text-blue-300 ml-2">
@@ -110,7 +110,7 @@ export default function DetailFilm() {
               <GridList
                 list={character}
                 cols="grid-cols-2 md:grid-cols-3"
-                typePicture="characters"
+                type="characters"
               />
             </div>
           )}
@@ -125,7 +125,7 @@ export default function DetailFilm() {
               <GridList
                 list={species}
                 cols="grid-cols-2 md:grid-cols-3"
-                typePicture="species"
+                type="species"
               />
             </div>
           )}
@@ -137,7 +137,7 @@ export default function DetailFilm() {
               <GridList
                 list={starships}
                 cols="grid-cols-2 md:grid-cols-3"
-                typePicture="starships"
+                type="starships"
               />
             </div>
           )}
@@ -149,7 +149,7 @@ export default function DetailFilm() {
               <GridList
                 list={vehicles}
                 cols="grid-cols-2 md:grid-cols-3"
-                typePicture="vehicles"
+                type="vehicles"
               />
             </div>
           )}
@@ -161,7 +161,7 @@ export default function DetailFilm() {
               <GridList
                 list={planets}
                 cols="grid-cols-2 md:grid-cols-3"
-                typePicture="planets"
+                type="planets"
               />
             </div>
           )}
