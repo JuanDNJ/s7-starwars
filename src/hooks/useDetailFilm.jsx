@@ -11,11 +11,11 @@ export const useDetailFilm = () => {
   const [starships, setStarships] = useState([]);
 
   const [view, setView] = useState({
-    SPECIES: true,
-    CHARACTERS: true,
-    PLANETS: true,
-    VEHICLES: true,
-    STARSHIPS: true,
+    SPECIES: false,
+    CHARACTERS: false,
+    PLANETS: false,
+    VEHICLES: false,
+    STARSHIPS: false,
   });
   const toggleView = (resource) => {
     switch (resource) {
